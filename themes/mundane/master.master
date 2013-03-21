@@ -1,0 +1,16 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="master.cs" Inherits="MasterPage" %>
+
+<!doctype html>
+<html>
+	<head>
+
+	</head>
+	<body>
+		<h1>Mundane.</h1>
+		<asp:ContentPlaceHolder id="content" runat="server">
+
+		</asp:ContentPlaceHolder>
+	</body>
+	<script src="/lib/jquery-1.8.3.min.js"></script>
+	<script src="/lib/modernizr.custom.min.js"></script>
+</html>
