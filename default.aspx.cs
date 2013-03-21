@@ -19,7 +19,7 @@ public partial class xampp_Default : System.Web.UI.Page
 
     }
 	
-	/*	public string GetConnectionString() {
-       return System.Configuration.ConfigurationManager.ConnectionStrings["blogConnectionString"].ConnectionString;
-    }    */
+	public string GetConnectionString() {
+       return System.Configuration.ConfigurationManager.ConnectionStrings["mynxConnectionString"].ConnectionString;
+    } 
 }

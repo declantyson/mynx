@@ -1,0 +1,5 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="master.cs" Inherits="MasterPage" %>
+
+<asp:ContentPlaceHolder id="ajax_content" runat="server">
+
+</asp:ContentPlaceHolder>

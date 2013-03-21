@@ -1,4 +1,6 @@
 function prettyTransition(){
+	if(window.location.hash.substring(1) === "") window.location.hash = 'home';
+
 	if(Modernizr.csstransitions) {
 		$('.content').css({
 			left : '-50px',
@@ -23,7 +25,7 @@ function prettyTransition(){
 
 	setTimeout(function(){
 		$.ajax({
-			url: window.location.hash.substr(1),
+			url: '/themes/ajaxy/page.aspx?slug=' + window.location.hash.substr(1),
 			type: 'GET'
 		}).done(function(data){
 			$('.slide').css({
