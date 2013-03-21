@@ -1,3 +1,4 @@
+# Mynx
 
           MMM.                                                                  
            MMMMI                                                                
@@ -39,32 +40,4 @@
         MMNM                   M       =Z          8.   M         ?.MM          
        M: MM                 . MM       M8MMMMMMMM M.    M        +MMM          
      DM. .MM.M           ..,~7DMMMMMM~.  M...  .. M.. .N M..      8MMM          
-    MM    MMMM       ?MMMMMMMMMMMMM.M..   M=MM MMMM.M?NO+M.,IMMM  MM M          
-   MM.   .MMMM .7   .    .8MMMMMM~ .  M    M=..M. .M MMMMM        MM..          
-  MM MMM. MM M.    .... .   .MMMMM+M M.M    M.M.  N. MMMM  ?M.    M?            
-.MMMMMMM. +  MM D         7M.    MMMMM$OMMMMM?MM:.. ZMMM,M    .. MM             
-    .MM.     MM M            ..  ~MMM=MMM$M.    MMMMN. .O:.M. .M.MM             
-   .MM       ~MMM,           .M.  MMMM    M.    MMM       ..  MMMM              
-   MM         MMMM        .   .M.  MM=M   D   M, M         . .M.MM              
-  MM MM,       M MM   .  .MMM~MMM. MMMM      M 7M~         M M   M              
-.MMMMM:          .MM  MMNMM$MM   M  .MMM   ~MM NM . .     M?MN   M              
-   IMM            $MMMMMM7M      $M   ..   .  MMM M M..M.MM I    IM             
-   MM              $M=M  ..       .MMM.    +MMM  MMMM?MMMM .     .M             
-  MM   M.                           .MMMMMMMZ       MMM.M.        MN            
- MM..MM                                                         ~ .M            
-MMMMMMM                                                         MMDMM           
- .. .M.                                                          MMMMM          
-    NM      .                         MYNX                       MZ  M.         
-    MM   ..M                                                 ..   M.            
-    MM   MMM                                                  MI   M            
-    MM:MMMMM    M                                              MM+.MM           
-    MMM,. M$  .MM      ?                                   M    MZMMMM          
-         .MM ,MMMD    NMN       7       =      M    .,     M?   M   . D         
-          MMMM  MM. .MMMM      MM.     .M      M    .M.    MMM  M               
-          MM.   =M  MM  M.    MMM.     ?M+     MM   ZMM   .M MMMM      
-                .M.MM   MM   MM M$    .MMM    7MM.  MM$M..MM  MMM.      
-                .MM7    .M  MM  7M    MM MM  .M? M .M  .MMMM    M       
-                 M.      MMMM.   MM  MM  .M  MM. .MMM.   MM            
-                         MMM      MMM8    8MMM    .M      M            
-                         .,       .M.      MM      ..                    
-                                   .                                            
+    MM    MMMM       ?MMMMMMMMMMMMM.M..   M=MM MMMM.M?NO+M.
