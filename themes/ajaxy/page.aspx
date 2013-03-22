@@ -2,6 +2,8 @@
 
 
 <asp:Content ID="content" ContentPlaceHolderID="ajax_content" Runat="Server">
+	<title><%= title %></title>
+
 	<script>
 		params = {
 			bgcolor : '#898989',

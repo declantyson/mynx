@@ -19,7 +19,7 @@ public partial class xampp_Default : System.Web.UI.Page
 	}
 
     protected void Page_Load(object sender, EventArgs e) {        
-		slug = Request.QueryString["slug"];
+		slug = Request.QueryString["page"];
 		SqlConnection connection = new SqlConnection(GetConnectionString());
 		string sql_string = "SELECT TOP 1 * FROM pages WHERE slug = '" + slug + "'";
         try
