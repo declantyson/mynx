@@ -2,28 +2,40 @@
 	max-width: 1024px;
 	margin: 0 auto;
 	position: relative;
-}
-
-.slide {
-	position: relative;
-	height: 100%;
-	width: 100%;
+	min-height: 400px;
 }
 
 .sidebar {
 	float: left;
-	width: 200px;
+	width: 240px;
 	position: relative;
 }
 
 .content {
 	float: right;
-	width: 700px;
+	max-width: 775px;
+	width: 100%;
 	width: -webkit-calc(100% - 250px);
 	width: -moz-calc(100% - 250px);
 	position: relative;
 }
 
+.sidebar, .content-box {
+	margin-bottom: 10px;
+}
+
+.clearfix, .clear {
+	clear:both;
+}
+
 .col {
 	float:left;
+}
+
+@media screen and (max-width: 590px) {
+	.sidebar, .content {
+		clear: both;
+		float: none;
+		width: 100%;
+	}
 }

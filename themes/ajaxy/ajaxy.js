@@ -3,7 +3,7 @@ function prettyTransition(){
 	if(window.location.hash.substring(1) === "") window.location.hash = 'home';
 
 	$('.content').css({
-		left : '-50px',
+		left : '50px',
 		opacity : 0
 	});			
 	$('.sidebar').css({
@@ -19,7 +19,8 @@ function prettyTransition(){
 	$('.bg-img').css(bg_options);
 
 	$('h1').css({
-		opacity : 0
+		opacity : 0,
+		display : 'block'
 	});
 
 	setTimeout(function(){
@@ -27,21 +28,30 @@ function prettyTransition(){
 			url: '/themes/ajaxy/page.aspx?page=' + window.location.hash.substr(1),
 			type: 'GET'
 		}).done(function(data){
-			$('.slide').css({
-				// opacity : 0,
+			$('.main').css({
+				display : 'block',
 				'background-image' : 'url(/themes/ajaxy/images/ajax-loader.gif)'
 			});
 
-			$('.slide').html(data);
+			$('.content').html(data);
+			$('h1#title').text(params.title);
 
 			$('.content').css({
-				left : '-50px',
-				opacity : 0
-			});			
+				left : '50px',
+				opacity : 0,
+				display : 'block'
+			});	
+
 			$('.sidebar').css({
 				top : '-50px',
+				display : 'block',
 				opacity : 0
 			});
+
+			$('.sidebar *').css({
+				display : 'block'
+			});
+
 			var bg_options = {
 				opacity : 1
 			};
@@ -57,7 +67,7 @@ function prettyTransition(){
 					'background-color' : params.bgcolor
 				});
 
-				$('.slide').css({
+				$('.main').css({
 					opacity : 1,
 					'background-image' : 'none'
 				});
@@ -90,14 +100,14 @@ function prettyTransition(){
 $(document).ready(function(){
 	if(Modernizr.csstransitions) {
 		if(window.location.pathname.split("/")[1] === "admin") {
-			$('.slide').css({
+			$('.main').css({
 				opacity : 1,
 				'background-image' : 'none'
 			});
 			return;
 		}
 
-		$('.slide *').css({
+		$('.main *').css({
 			display: 'none'
 		});
 

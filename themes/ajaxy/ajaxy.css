@@ -30,11 +30,15 @@ h1 {
 	-o-transition: all 1s;
 }
 
+h2 {
+	margin: 0 0 10px 0;
+}
+
 h2 span {
 	color: #d3970f;
 }
 
-.slide {
+.main {
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: background-image 1s;
@@ -49,6 +53,7 @@ h2 span {
 	bottom: 0;
 	right: 0;
 	width: 33%;
+	z-index: -1;
 	transition: all 1s;
 	-moz-transition: all 1s;
 	-webkit-transition: all 1s;
@@ -63,6 +68,17 @@ h2 span {
 }
 
 .content {
+	transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+}
+
+.admin-navigation, .content-box {
+	padding: 20px;
+	background-color: rgba(51, 51, 51, 0.8);
+	color: #fff;
+	text-align: right;
 	padding: 20px;
 	background-color: rgba(51, 51, 51, 0.8);
 	color: #fff;
@@ -76,7 +92,17 @@ h2 span {
 	-o-transition: all 1s;
 }
 
-.content h2 {
+.admin-navigation {
+	text-align: left;
+}
+
+.admin-navigation ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.content h2, .admin-navigation h2 {
 	text-shadow:3px 3px 5px #000000;
 }
 
@@ -87,8 +113,9 @@ h2 span {
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;	
-	height: 150px;
-	width: 150px;
+	height: 110px;
+	width: 110px;
+	padding: 20px;
 	text-align: center;
 	background-repeat: no-repeat;
 	float: left;
@@ -96,10 +123,7 @@ h2 span {
 }
 
 .stat h2 {
-	position: relative;
-	top: 40%;
-	/*margin-top: -20px;*/
-	margin: 0;
+	text-shadow: none;
 }
 
 select {
@@ -160,4 +184,23 @@ input[type=button] {
 input[type=submit]:hover,
 input[type=button]:hover {
 	background-color: #86600a;
+}
+
+@media screen and (max-width: 640px) {
+	.admin-navigation, .content-box, .sidebar, .content {
+		transition: none 1s;
+		-moz-transition: none 1s;
+		-webkit-transition: none 1s;
+		-o-transition: none 1s;
+	}
+}
+
+@media screen and (max-width: 590px) {
+	select {
+		width: 100px;
+	}
+
+	.select-label:after {
+		left: 90px;
+	}
 }
