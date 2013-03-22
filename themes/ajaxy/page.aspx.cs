@@ -9,7 +9,6 @@ using System.Data.Sql;
 
 public partial class xampp_Default : System.Web.UI.Page
 {
-	public string currentTheme = "ajaxy"; // this will be defined in the database later on
 	public string title = "";
 	public string data = "";
 	public string slug = "";

@@ -118,3 +118,63 @@ h2 span {
 	/*margin-top: -20px;*/
 	margin: 0;
 }
+
+select {
+	padding: 7px;
+	margin-left: 20px;
+	width: 200px;
+	border: none;
+	outline: none;
+	background-color: rgb(51, 51, 51);
+	color: white;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-family: 'Lato', sans-serif;
+}
+
+
+.select-label {
+	position: absolute;
+}
+
+.select-label:after {
+	content: ' ';
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	background-image: url(images/drop.jpg);
+	background-position: top right;
+	background-repeat: no-repeat;
+	pointer-events: none;
+	position: relative;
+	z-index: 50;
+	left: 190px;
+	top: 4px;
+}
+
+select:hover {
+	padding: 6px;
+	border: solid 1px #898989;
+}
+
+input[type=submit], 
+input[type=button] {
+	padding: 7px;
+	border: none;
+	outline: none;
+	background-color: rgb(99, 99, 99);
+	color: white;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-family: 'Lato', sans-serif;
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	-webkit-transition: background-color 0.5s;
+	-o-transition: background-color 0.5s;
+}
+input[type=submit]:hover,
+input[type=button]:hover {
+	background-color: #86600a;
+}

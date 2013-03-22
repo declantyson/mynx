@@ -1,4 +1,5 @@
 function prettyTransition(){
+	if(window.location.pathname.split("/")[1] === "admin") return;
 	if(window.location.hash.substring(1) === "") window.location.hash = 'home';
 
 	$('.content').css({
@@ -88,6 +89,14 @@ function prettyTransition(){
 
 $(document).ready(function(){
 	if(Modernizr.csstransitions) {
+		if(window.location.pathname.split("/")[1] === "admin") {
+			$('.slide').css({
+				opacity : 1,
+				'background-image' : 'none'
+			});
+			return;
+		}
+
 		$('.slide *').css({
 			display: 'none'
 		});
