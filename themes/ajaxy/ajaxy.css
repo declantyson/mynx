@@ -35,9 +35,6 @@ h2 span {
 }
 
 .slide {
-	position: relative;
-	height: 100%;
-	width: 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: background-image 1s;
@@ -58,16 +55,7 @@ h2 span {
 	-o-transition: all 1s;
 }
 
-.main {
-	max-width: 1024px;
-	margin: 0 auto;
-	position: relative;
-}
-
 .sidebar {
-	float: left;
-	width: 200px;
-	position: relative;
 	transition: all 1s;
 	-moz-transition: all 1s;
 	-webkit-transition: all 1s;
@@ -75,13 +63,9 @@ h2 span {
 }
 
 .content {
-	float: right;
 	padding: 20px;
 	background-color: rgba(51, 51, 51, 0.8);
 	color: #fff;
-	width: 700px;
-	width: -webkit-calc(100% - 250px);
-	width: -moz-calc(100% - 250px);
 	text-align: right;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -90,7 +74,6 @@ h2 span {
 	-moz-transition: all 1s;
 	-webkit-transition: all 1s;
 	-o-transition: all 1s;
-	position: relative;
 }
 
 .content h2 {

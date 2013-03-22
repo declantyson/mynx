@@ -1,3 +1,29 @@
+.main {
+	max-width: 1024px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.slide {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.sidebar {
+	float: left;
+	width: 200px;
+	position: relative;
+}
+
+.content {
+	float: right;
+	width: 700px;
+	width: -webkit-calc(100% - 250px);
+	width: -moz-calc(100% - 250px);
+	position: relative;
+}
+
 .col {
 	float:left;
 }
