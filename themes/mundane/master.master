@@ -3,13 +3,17 @@
 <!doctype html>
 <html>
 	<head>
-
+		<link rel="stylesheet" href="/lib/base.css"/>
+		<link rel="stylesheet" href="/themes/mundane/mundane.css"/>
 	</head>
 	<body>
-		<h1>Mundane.</h1>
-		<asp:ContentPlaceHolder id="content" runat="server">
+		<div class="slide">
+			<div class="main">
+				<asp:ContentPlaceHolder id="content" runat="server">
 
-		</asp:ContentPlaceHolder>
+				</asp:ContentPlaceHolder>
+			</div>
+		</div>
 	</body>
 	<script src="/lib/jquery-1.8.3.min.js"></script>
 	<script src="/lib/modernizr.custom.min.js"></script>
