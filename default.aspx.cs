@@ -7,7 +7,7 @@ using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using System.Data.Sql;
 
-public partial class xampp_Default : System.Web.UI.Page
+public partial class Page : System.Web.UI.Page
 {
 	public string currentTheme = "";
 	public string title = "";

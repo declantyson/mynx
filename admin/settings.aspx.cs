@@ -8,7 +8,7 @@ using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using System.Data.Sql;
 
-public partial class xampp_Default : System.Web.UI.Page
+public partial class Page : System.Web.UI.Page
 {
 	public string currentTheme = ""; // this will be defined in the database later on
 	public int themecount = 0;
