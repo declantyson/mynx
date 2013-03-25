@@ -28,8 +28,45 @@
 	clear:both;
 }
 
-.col {
+.col, .widget-col {
 	float:left;
+	padding: 1%;
+}
+
+.col-25 {
+	width: 23%;
+}
+
+.col-33 {
+	width: 31%;
+}
+
+.col-50 {
+	width: 48%;
+}
+
+.col-66 {
+	width: 64%;
+}
+
+.col-75 {
+	width: 73%;
+}
+
+.col-100 {
+	width: 98%;
+}
+
+.widget-col {
+	text-align: left;
+	background-color: #333;
+	color: white;
+	clear: both;
+	margin: 1% 0;
+}
+
+.widget-col p {
+	margin: 0;
 }
 
 @media screen and (max-width: 590px) {

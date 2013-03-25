@@ -1,0 +1,40 @@
+.content-box {
+	transition: none !important;
+	-moz-transition: none !important;
+	-webkit-transition: none !important;
+	-o-transition: none !important;
+}
+
+.increase-col, .reduce-col, .move-col {
+	cursor: pointer;
+	padding: 5px;
+	height: 20px;
+	width: 20px;
+	display: inline-block;
+}
+
+.move-col {
+	background:url("/assets/cms/move.png") no-repeat center;
+	padding-right: 0;
+}
+
+.increase-col {
+	background:url("/assets/cms/expand.png") no-repeat;
+}
+
+.reduce-col {
+	background:url("/assets/cms/contract.png") no-repeat;
+}
+
+.del-col {
+	font-weight: bold;
+	padding: 5px;
+	color: red;
+	cursor:pointer;
+}
+
+.edit-col textarea {
+	display: block;
+	resize: vertical;
+	width: 100%;
+}
