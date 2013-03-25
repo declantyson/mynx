@@ -3,8 +3,6 @@
 <asp:Content ID="content" ContentPlaceHolderID="content" Runat="Server">
 	<title>Website settings</title>
 
-	<h1>Settings</h1>
-
 	<div class="content-box">
 		<h2>Themes<br><span><small>There are currently <%= themecount %> themes installed.</small></span></h2>
 		<form id="choose_theme" runat="server">
@@ -17,11 +15,11 @@
 	</div>
 
 	<div class="content-box">
+
 		<div class="widget stat" style="color: black;">
 			<h2>5.4</h2>
 			<p>different stats on the website</p>
 		</div>
-		<div class="clearfix"></div>
 	</div>
 	
 </asp:Content>

@@ -40,7 +40,7 @@ public partial class Page : System.Web.UI.Page
 			connection.Close();
 		}
 
-	    MasterPageFile = "/themes/" + currentTheme + "/master.master";
+	    MasterPageFile = "/themes/" + currentTheme + "/admin.master";
 	}
 
     protected void Page_Load(object sender, EventArgs e) {        
