@@ -16,10 +16,6 @@
 
 	<div class="content-box">
 
-		<div class="widget stat" style="color: black;">
-			<h2>5.4</h2>
-			<p>different stats on the website</p>
-		</div>
 	</div>
 	
 </asp:Content>
