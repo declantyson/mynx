@@ -41,4 +41,10 @@
 		<p class="new-html">Add HTML outside of content box</p>
 	</div>
 
+	<script type="text/javascript">
+		widgetCode = {
+			<%= jsObject %>
+		}
+	</script>
+
 </asp:Content>

@@ -1,5 +1,5 @@
 .main {
-	max-width: 1024px;
+	max-width: 1200px;
 	margin: 0 auto;
 	position: relative;
 	min-height: 400px;
@@ -13,7 +13,7 @@
 
 .content {
 	float: right;
-	max-width: 775px;
+	max-width: 1325px;
 	width: 100%;
 	width: -webkit-calc(100% - 250px);
 	width: -moz-calc(100% - 250px);
