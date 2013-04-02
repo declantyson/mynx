@@ -1,0 +1,14 @@
+<%@ Master Language="C#" AutoEventWireup="true" %>
+
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="/lib/cms.css"/>
+		<link rel="stylesheet" href="/themes/ajaxy/ajaxy.css"/>
+	</head>
+	<body>
+		<asp:ContentPlaceHolder id="content" runat="server">
+
+		</asp:ContentPlaceHolder>
+	</body>
+</html>

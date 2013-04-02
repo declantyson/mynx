@@ -25,8 +25,8 @@
 	<div class="clearfix"></div>
 
 	<div class="widget-col col-33 new-col main-widget-editor">
-		<p class="new-content-box">Add content box</p>
-		<p class="new-html">Add HTML outside of content box</p>
+		<!-- <p class="new-content-box">Add content box</p> -->
+		<p class="new-html">Add raw HTML column</p>
 	</div>
 	<div class="clearfix"></div>
 
@@ -37,12 +37,13 @@
 	</div>
 
 	<div class="widget-col col-33 new-col main-widget-editor">
-		<p class="new-content-box">Add content box</p>
-		<p class="new-html">Add HTML outside of content box</p>
+		<!-- <p class="new-content-box">Add content box</p> -->
+		<p class="new-html">Add raw HTML column</p>
 	</div>
 
 	<script type="text/javascript">
 		widgetCode = {
+			image: '<div class="col edit-col col-33 movable resizable"><iframe src="upload.aspx" style="width: 100%"></iframe></div.',
 			<%= jsObject %>
 		}
 	</script>

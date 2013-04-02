@@ -210,6 +210,13 @@ input[type=button]:hover {
 	}
 }
 
+.col iframe {
+	width: 100%;
+	height: auto;
+	border: none;
+	overflow: hidden;
+}
+
 @media screen and (max-width: 590px) {
 	select {
 		width: 100px;
