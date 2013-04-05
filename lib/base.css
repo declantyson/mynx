@@ -69,6 +69,12 @@
 	margin: 0;
 }
 
+iframe {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
 @media screen and (max-width: 590px) {
 	.sidebar, .content {
 		clear: both;

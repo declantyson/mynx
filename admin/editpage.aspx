@@ -43,7 +43,7 @@
 
 	<script type="text/javascript">
 		widgetCode = {
-			image: '<div class="col edit-col col-33 movable resizable"><iframe src="upload.aspx" style="width: 100%"></iframe></div.',
+			image: '<div class="col edit-col col-33 movable resizable"><iframe src="upload.aspx" style="width: 100%" class="upload-form"></iframe></div>',
 			<%= jsObject %>
 		}
 	</script>
