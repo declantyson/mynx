@@ -73,6 +73,18 @@ iframe {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+	width: 100%;
+	height: auto;
+	border: none;
+	overflow: hidden;
+}
+
+.upload-form {
+	height: 210px;
+}
+
+.uploader span {
+	font-size: 11px;
 }
 
 @media screen and (max-width: 590px) {
