@@ -114,7 +114,7 @@ h2 span {
 	-moz-border-radius: 50%;
 	border-radius: 50%;	
 	height: 150px;
-	width: 150px;
+	max-width: 150px;
 	padding: 20px;
 	text-align: center;
 	background-repeat: no-repeat;
@@ -217,5 +217,20 @@ input[type=button]:hover {
 
 	.select-label:after {
 		left: 90px;
+	}
+
+	.col, h1 {
+		text-align: left;
+	}
+
+	h1 {
+		font-size: 32px;
+		padding: 0 10px;
+	}
+
+	.stat {
+		max-width: none;
+		width: 80%;
+		height: 100px;
 	}
 }

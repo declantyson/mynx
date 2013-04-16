@@ -38,3 +38,7 @@
 	resize: vertical;
 	width: 100%;
 }
+
+#admin-controls {
+	display: block;
+}

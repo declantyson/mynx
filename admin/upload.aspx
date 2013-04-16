@@ -14,8 +14,5 @@
 		<CuteWebUI:Uploader id="uploader" InsertText="Upload a file" OnFileUploaded="uploaded" runat="server">
 			<ValidateOption AllowedFileExtensions="jpeg,jpg,gif,png" MaxSizeKB="2048" />
 		</CuteWebUI:Uploader>
-		<br/>
-		<br/>
-		<asp:Label runat="server">Album</asp:Label>  <asp:TextBox ID="album" runat="server"/>
 	</form>
 </asp:Content>

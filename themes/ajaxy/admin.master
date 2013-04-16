@@ -17,7 +17,7 @@
 
 				</asp:ContentPlaceHolder>
 			</div>
-			<div class="sidebar">
+			<div id="admin-controls" class="sidebar">
 				<div class="admin-navigation">
 					<h2><span><small>Administration</small></span></h2>
 					<ul>

@@ -21,7 +21,8 @@ public partial class Page : System.Web.UI.Page
         System.IO.Directory.CreateDirectory(dir);
         string fn = Path.Combine(dir, e.FileName);
         e.CopyTo(fn);
-        feedback.Text = "Successfully uploaded " + e.FileName + "<br/>";
+        string browserFriendlyUrl = "/assets/uploads/" + DateTime.Now.ToString("yyyy-MM-dd") + "/" + e.FileName;
+        feedback.Text = "<img src='" + browserFriendlyUrl + "' class='uploaded-file'/><br/>";
 
         SqlConnection connection = new SqlConnection(GetConnectionString());
 
@@ -29,8 +30,8 @@ public partial class Page : System.Web.UI.Page
             connection.Open();
             using (SqlCommand cmd = new SqlCommand("INSERT into uploads VALUES (NEWID(), @path, @album)", connection))
             {
-            cmd.Parameters.AddWithValue("@path", fn);
-            cmd.Parameters.AddWithValue("@album", album.Text);
+            cmd.Parameters.AddWithValue("@path", browserFriendlyUrl);
+            cmd.Parameters.AddWithValue("@album", " ");
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.ExecuteNonQuery();
             }

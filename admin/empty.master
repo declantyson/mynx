@@ -9,8 +9,10 @@
 		<script src="/lib/jquery-1.8.3.min.js"></script>
 		<script>
 			function fileUploaded(){
-				var uploadedImage = $('iframe.upload-form', window.parent.document).contents().find('img');
-				console.log("hello");
+				var uploadedImage = $('iframe.upload-form', window.parent.document).contents().find('.uploaded-file');
+				setTimeout(function(){
+					$('iframe.upload-form', window.parent.document).replaceWith(uploadedImage);
+				}, 1);
 			}
 		</script>
 	</head>

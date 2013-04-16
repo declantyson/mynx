@@ -24,6 +24,10 @@
 	margin-bottom: 10px;
 }
 
+.content-box {
+	clear: both;
+}
+
 .clearfix, .clear {
 	clear:both;
 }
@@ -87,8 +91,12 @@ iframe {
 	font-size: 11px;
 }
 
+.col img {
+	width: 100%;
+}
+
 @media screen and (max-width: 590px) {
-	.sidebar, .content {
+	.sidebar, .content, .col {
 		clear: both;
 		float: none;
 		width: 100%;
