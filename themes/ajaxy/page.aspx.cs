@@ -19,6 +19,9 @@ public partial class Page : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e) {        
 		slug = Request.QueryString["page"];
+		if (slug == "") {
+			slug = "home";
+		}
 		SqlConnection connection = new SqlConnection(GetConnectionString());
 		string sql_string = "SELECT TOP 1 * FROM pages WHERE slug = '" + slug + "'";
         try

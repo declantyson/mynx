@@ -1,6 +1,5 @@
 function prettyTransition(){
 	if(window.location.pathname.split("/")[1] === "admin") return;
-	if(window.location.hash.substring(1) === "") window.location.hash = 'home';
 
 	$('.content').css({
 		left : '50px',
