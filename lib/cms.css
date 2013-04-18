@@ -5,7 +5,7 @@
 	-o-transition: none !important;
 }
 
-.increase-col, .reduce-col, .move-col {
+.increase-col, .reduce-col, .move-col, .editable-col, .revert-col {
 	cursor: pointer;
 	padding: 5px;
 	height: 20px;
@@ -20,6 +20,14 @@
 
 .increase-col {
 	background:url("/assets/cms/expand.png") no-repeat;
+}
+
+.revert-col {
+	background:url("/assets/cms/revert.png") no-repeat;
+}
+
+.editable-col {
+	background:url("/assets/cms/edit.png") no-repeat;
 }
 
 .reduce-col {

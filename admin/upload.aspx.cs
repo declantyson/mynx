@@ -22,7 +22,7 @@ public partial class Page : System.Web.UI.Page
         string fn = Path.Combine(dir, e.FileName);
         e.CopyTo(fn);
         string browserFriendlyUrl = "/assets/uploads/" + DateTime.Now.ToString("yyyy-MM-dd") + "/" + e.FileName;
-        feedback.Text = "<img src='" + browserFriendlyUrl + "' class='uploaded-file'/><br/>";
+        feedback.Text = "<div class='col-content'><img src='" + browserFriendlyUrl + "'/></div>";
 
         SqlConnection connection = new SqlConnection(GetConnectionString());
 
