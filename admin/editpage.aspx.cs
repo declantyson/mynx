@@ -15,7 +15,6 @@ public partial class Page : System.Web.UI.Page
 	public string slug = "";
 	public string text = "";
 	public string id = "";
-	public string jsObject = "";
 
 	protected void Page_PreInit(object sender, EventArgs e)	{
 		SqlConnection connection = new SqlConnection(GetConnectionString());
@@ -69,8 +68,6 @@ public partial class Page : System.Web.UI.Page
 		} finally {
 			connection.Close();
 		}	
-
-		getWidgetsForCms();
     }
 
     protected void update_page(object sender, EventArgs e) {
@@ -99,35 +96,4 @@ public partial class Page : System.Web.UI.Page
 	public string GetConnectionString() {
        return System.Configuration.ConfigurationManager.ConnectionStrings["mynxConnectionString"].ConnectionString;
     } 
-
-    public void getWidgetsForCms() {
-   	    SqlConnection connection = new SqlConnection(GetConnectionString());
-   	    string widget_id = "";
-   	    string widget_name = "";
-   	    string widget_code = "";
-
-    	string sql_string = "SELECT * FROM widgets";
-        try	{
-			connection.Open();
-			SqlDataReader widget_reader = null;
-			SqlCommand sql_command = new SqlCommand(sql_string, connection);
-			widget_reader = sql_command.ExecuteReader();
-			
-			while(widget_reader.Read())
-			{	
-				widget_id = widget_reader["widget_id"].ToString();
-				widget_name = widget_reader["widget_name"].ToString();
-				widget_code = widget_reader["widget_code"].ToString();
-			}
-
-			jsObject += widget_name + " : '" + widget_code + "', \n";
-	
-		} catch (System.Data.SqlClient.SqlException ex)	{
-			string msg = "D'oh, something's not right...";
-			msg += ex.Message;
-			throw new Exception(msg);
-		} finally {
-			connection.Close();
-		}
-    }
 }

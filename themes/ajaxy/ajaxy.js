@@ -1,5 +1,7 @@
 function prettyTransition(){
+	var page = window.location.hash.substr(1);
 	if(window.location.pathname.split("/")[1] === "admin") return;
+	if(window.location.hash.substr(1) === "" || window.location.hash.substr(1) === "/") page = "home";
 
 	$('.content').css({
 		left : '50px',
@@ -24,7 +26,7 @@ function prettyTransition(){
 
 	setTimeout(function(){
 		$.ajax({
-			url: '/themes/ajaxy/page.aspx?page=' + window.location.hash.substr(1),
+			url: '/themes/ajaxy/page.aspx?page=' + page,
 			type: 'GET'
 		}).done(function(data){
 			$('.main').css({
@@ -118,7 +120,7 @@ $(document).ready(function(){
 
 		$('a.internal').live('click', function(e){
 			e.preventDefault();
-			window.location.hash = $(this).attr('href').substring(7);
+			window.location.hash = $(this).attr('href');
 		});
 	}
 });

@@ -41,11 +41,4 @@
 		<p class="new-html">Add raw HTML column</p>
 	</div>
 
-	<script type="text/javascript">
-		widgetCode = {
-			image: '<div class="col edit-col col-33 movable resizable editable"><iframe src="upload.aspx" style="width: 100%" class="upload-form"></iframe></div>',
-			<%= jsObject %>
-		}
-	</script>
-
 </asp:Content>
