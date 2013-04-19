@@ -117,14 +117,27 @@ $(document).ready(function(){
 
 		prettyTransition();
 
-		$(window).on('hashchange', function (){
-			prettyTransition();
-		});
+		if(history.pushState) {
+			window.onpopstate = function(event) {
+				prettyTransition();
+			};
+			
+			$('a.internal').live('click', function(e){
+				e.preventDefault();
+				href = $(this).attr("href");
+				history.pushState('', 'New URL: ' + href, href);
+				prettyTransition();
+			});	
+		} else {
+			$(window).on('hashchange', function (){
+				prettyTransition();
+			});
 
-		$('a.internal').live('click', function(e){
-			e.preventDefault();
-			window.location.hash = $(this).attr('href');
-		});
+			$('a.internal').live('click', function(e){
+				e.preventDefault();
+				window.location.hash = $(this).attr('href');
+			});
+		}
 	}
 });
 
