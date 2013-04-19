@@ -50,3 +50,9 @@
 #admin-controls {
 	display: block;
 }
+
+.edit-image {
+	float: left;
+	width: 31%;
+	padding: 1%;
+}

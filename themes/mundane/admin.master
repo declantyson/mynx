@@ -22,7 +22,7 @@
 					<h2><span><small>Administration</small></span></h2>
 					<ul>
 						<li>New page</li>
-						<li><a href="/admin/editpage">Edit pages</a></li>
+						<li><a href="/admin/editpages">Edit pages</a></li>
 						<li><a href="/admin/imagelibrary">Image library</a></li>
 						<li>Widgets</li>
 						<li><a href="/admin/settings">Settings</a></li>

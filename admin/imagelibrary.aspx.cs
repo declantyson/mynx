@@ -10,14 +10,13 @@ using System.Data.Sql;
 
 public partial class Page : System.Web.UI.Page
 {
-	public string currentTheme = ""; // this will be defined in the database later on
-	public int themecount = 0;
+	public string currentTheme = "";
+	public string output = "";
 
 	protected void Page_PreInit(object sender, EventArgs e)	{
 		SqlConnection connection = new SqlConnection(GetConnectionString());
 		string sql_string = "SELECT TOP 1 * FROM settings";
-        try
-		{
+        try	{
 			connection.Open();
 			SqlDataReader settings_reader = null;
 			SqlCommand sql_command = new SqlCommand(sql_string, connection);
@@ -28,15 +27,11 @@ public partial class Page : System.Web.UI.Page
 				currentTheme = settings_reader["current_theme"].ToString();
 			}
 	
-		}
-		catch (System.Data.SqlClient.SqlException ex)
-		{
+		} catch (System.Data.SqlClient.SqlException ex) {
 			string msg = "D'oh, something's not right...";
 			msg += ex.Message;
 			throw new Exception(msg);
-		}
-		finally
-		{
+		} finally {
 			connection.Close();
 		}
 
@@ -44,25 +39,40 @@ public partial class Page : System.Web.UI.Page
 	}
 
     protected void Page_Load(object sender, EventArgs e) {        
-		if(!Page.IsPostBack) {
-			DirectoryInfo directory = new DirectoryInfo(System.Web.HttpContext.Current.Server.MapPath("~/themes/"));
-        	DirectoryInfo[] dirs = directory.GetDirectories();
-        	themecount = dirs.Length;
-        	foreach (DirectoryInfo dir in dirs) 
-        	{
-        		themes.Items.Add(new ListItem(dir.Name, dir.Name));
-        	}
-        }
+		SqlConnection connection = new SqlConnection(GetConnectionString());
+		string sql_string = "SELECT * FROM uploads";
+        try	{
+			connection.Open();
+			SqlDataReader image_reader = null;
+			SqlCommand sql_command = new SqlCommand(sql_string, connection);
+			image_reader = sql_command.ExecuteReader();
+			
+			while(image_reader.Read())
+			{	
+				output += "<div class='edit-image'>";
+				output += "<img src='" + image_reader["filepath"].ToString() + "'/>";
+				output += "</div>";
+			}
+	
+		} catch (System.Data.SqlClient.SqlException ex)	{
+			string msg = "D'oh, something's not right...";
+			msg += ex.Message;
+			throw new Exception(msg);
+		} finally {
+			connection.Close();
+		}	
     }
 
-    protected void change_theme_Click(Object sender, EventArgs e) {
-        SqlConnection connection = new SqlConnection(GetConnectionString());
+    protected void update_page(object sender, EventArgs e) {
+    	SqlConnection connection = new SqlConnection(GetConnectionString());
 
 		try {
             connection.Open();
-			using (SqlCommand cmd =new SqlCommand("UPDATE settings SET current_theme=@theme" + " WHERE settings_id=1", connection))
+			using (SqlCommand cmd =new SqlCommand("UPDATE pages SET title=@pageTitle,slug=@slug,text=@text WHERE id=" + Request["id"], connection))
 			{
-			cmd.Parameters.AddWithValue("@theme", themes.SelectedItem.Text);
+			cmd.Parameters.AddWithValue("@pageTitle", Request["title"]);
+			cmd.Parameters.AddWithValue("@slug", Request["slug"]);
+			cmd.Parameters.AddWithValue("@text", Request["text"]);
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.ExecuteNonQuery();
 			}
@@ -72,7 +82,7 @@ public partial class Page : System.Web.UI.Page
             throw new Exception(msg);
         } finally {
             connection.Close();
-            Response.Redirect("/admin/settings");
+            Response.Redirect("/admin/editpage.aspx");
         }
     }
 	

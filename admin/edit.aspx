@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="/themes/mundane/master.master" AutoEventWireup="true" CodeFile="editpage.aspx.cs" Inherits="Page" ValidateRequest="false" %>
+<%@ Page Title="" Language="C#" MasterPageFile="/themes/mundane/master.master" AutoEventWireup="true" CodeFile="edit.aspx.cs" Inherits="Page" ValidateRequest="false" %>
 
 <asp:Content ID="content" ContentPlaceHolderID="content" Runat="Server">
 

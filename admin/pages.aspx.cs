@@ -10,11 +10,8 @@ using System.Data.Sql;
 
 public partial class Page : System.Web.UI.Page
 {
-	public string currentTheme = ""; // this will be defined in the database later on
-	public string pageTitle = "";
-	public string slug = "";
-	public string text = "";
-	public string id = "";
+	public string currentTheme = "";
+	public string output = "";
 
 	protected void Page_PreInit(object sender, EventArgs e)	{
 		SqlConnection connection = new SqlConnection(GetConnectionString());
@@ -43,7 +40,7 @@ public partial class Page : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e) {        
 		SqlConnection connection = new SqlConnection(GetConnectionString());
-		string sql_string = "SELECT * FROM pages WHERE id = 2";
+		string sql_string = "SELECT * FROM pages";
         try	{
 			connection.Open();
 			SqlDataReader page_reader = null;
@@ -52,14 +49,11 @@ public partial class Page : System.Web.UI.Page
 			
 			while(page_reader.Read())
 			{	
-				pageTitle = page_reader["title"].ToString();
-				id = page_reader["id"].ToString();
-				slug = page_reader["slug"].ToString();
-				text = page_reader["text"].ToString();
+				output += "<tr>";
+				output += "<td><a href='/admin/edit/" + page_reader["slug"].ToString() + "'>" + page_reader["title"].ToString() + "</a></td>";
+				output += "<td>" + page_reader["slug"].ToString() + "</td>";
+				output += "</tr>";
 			}
-
-			text = text.Replace("\"", "'");
-			text = text.Trim();
 	
 		} catch (System.Data.SqlClient.SqlException ex)	{
 			string msg = "D'oh, something's not right...";

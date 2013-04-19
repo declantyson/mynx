@@ -4,5 +4,16 @@ html, body {
 }
 
 a {
-	color: #666666;
+	color: #0000aa;
+	text-decoration: none;
+}
+
+table {
+	width: 100%;
+	text-align: left;
+}
+
+th {
+	padding-bottom: 10px;
+	border-bottom: solid 1px #cdcdcd;
 }
