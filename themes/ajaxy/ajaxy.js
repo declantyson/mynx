@@ -1,7 +1,10 @@
 function prettyTransition(){
 	var page = window.location.hash.substr(1);
 	if(window.location.pathname.split("/")[1] === "admin") return;
-	if(window.location.hash.substr(1) === "" || window.location.hash.substr(1) === "/") page = "home";
+	if(window.location.hash.substr(1) === "/") page = "home";
+	if(window.location.hash.substr(1) === "") {
+		page = window.location.pathname.substr(1);
+	}
 
 	$('.content').css({
 		left : '50px',
