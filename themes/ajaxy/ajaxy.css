@@ -71,6 +71,10 @@ h3 {
 	-o-transition: all 1s;
 }
 
+.toolbar, .sidebar, .footer, #title {
+	z-index: 20;
+}
+
 .admin-navigation, .content-box {
 	padding: 20px;
 	background-color: rgba(51, 51, 51, 0.8);
