@@ -22,6 +22,16 @@
 	width: 100%;
 }
 
+.toolbar {
+	width: 100%;
+	position: relative;
+}
+
+.footer {
+	clear: right;
+	float: right;
+}
+
 .sidebar, .content-box {
 	margin-bottom: 10px;
 }

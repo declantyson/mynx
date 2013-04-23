@@ -8,6 +8,11 @@
 	</head>
 	<body>
 		<div class="main">
+			<% if(block_toolbar == 1) { %>
+				<div class="toolbar">
+					<%= toolbar_code %>
+				</div>
+			<% } %>
 			<div class="content">
 				<asp:ContentPlaceHolder id="content" runat="server">
 
@@ -16,6 +21,11 @@
 			<% if(block_sidebar == 1) { %>
 				<div class="sidebar">
 					<%= sidebar_code %>
+				</div>
+			<% } %>
+			<% if(block_footer == 1) { %>
+				<div class="footer">
+					<%= footer_code %>
 				</div>
 			<% } %>
 		</div>

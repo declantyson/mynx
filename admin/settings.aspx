@@ -16,11 +16,25 @@
 
 		<div class="content-box block-settings">
 			<h2>Blocks<br><span><small>Content you want to appear on every page</span></small></h2>
+
 			<h3>Sidebar</h3>
 			<div class="block-sidebar">
 				<asp:CheckBox id="block_sidebar" runat="server"/> <label for="block_sidebar">Enable this block</label>
 			</div>
 			<asp:Textbox id="sidebar_code" runat="server" class="sidebar-code" Textmode="Multiline" />
+
+			<h3>Toolbar</h3>
+			<div class="block-toolbar">
+				<asp:CheckBox id="block_toolbar" runat="server"/> <label for="block_toolbar">Enable this block</label>
+			</div>
+			<asp:Textbox id="toolbar_code" runat="server" class="toolbar-code" Textmode="Multiline" />
+
+			<h3>Footer</h3>
+			<div class="block-footer">
+				<asp:CheckBox id="block_footer" runat="server"/> <label for="block_footer">Enable this block</label>
+			</div>
+			<asp:Textbox id="footer_code" runat="server" class="footer-code" Textmode="Multiline" />
+
 			<asp:Button id="update_blocks" OnClick="update_blocks_Click" text="Update block settings" runat="server"/>
 		</div>
 	</form>

@@ -10,9 +10,15 @@ function prettyTransition(){
 		left : '50px',
 		opacity : 0
 	});			
-	$('.sidebar').css({
-		top : '-50px',
-		opacity : 0
+	if(glob.firstload) {
+		$('.sidebar, .toolbar').css({
+			top : '-50px',
+			opacity : 0
+		});
+	}
+
+	$('.footer').css({
+		opacity : 0,
 	});
 
 	var bg_options = {
@@ -44,17 +50,23 @@ function prettyTransition(){
 				left : '50px',
 				opacity : 0,
 				display : 'block'
-			});	
+			});				
 
-			$('.sidebar').css({
-				top : '-50px',
-				display : 'block',
-				opacity : 0
-			});
+			if(glob.firstload) {
+				$('.sidebar, .toolbar').css({
+					top : '-50px',
+					display : 'block',
+					opacity : 0
+				});
+			}
 
-			$('.sidebar *').css({
+			$('.footer').css({
+				opacity : 0,
 				display : 'block'
 			});
+
+			$('.sidebar *, .toolbar *, .footer *').show();
+			glob.firstload = false;
 
 			var bg_options = {
 				opacity : 1
@@ -80,7 +92,7 @@ function prettyTransition(){
 					left : 'auto',
 					opacity : 1
 				});			
-				$('.sidebar').css({
+				$('.sidebar, .toolbar, .footer').css({
 					top : 'auto',
 					opacity : 1
 				});
@@ -101,7 +113,12 @@ function prettyTransition(){
 	}, 1000);
 }
 
+glob = {
+
+}
+
 $(document).ready(function(){
+	glob.firstload = true;
 	if(Modernizr.csstransitions) {
 		if(window.location.pathname.split("/")[1] === "admin") {
 			$('.main').css({

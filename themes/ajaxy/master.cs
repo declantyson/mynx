@@ -11,7 +11,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
 
 	public string sidebar_code = "";
+	public string toolbar_code = "";
+	public string footer_code = "";
 	public int block_sidebar = 0;
+	public int block_toolbar = 0;
+	public int block_footer = 0;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -27,7 +31,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
 			while(settings_reader.Read())
 			{	
 				sidebar_code = settings_reader["sidebar_code"].ToString();
+				toolbar_code = settings_reader["toolbar_code"].ToString();
+				footer_code = settings_reader["footer_code"].ToString();
 				block_sidebar = Convert.ToInt32(settings_reader["block_sidebar"]);
+				block_toolbar = Convert.ToInt32(settings_reader["block_toolbar"]);
+				block_footer = Convert.ToInt32(settings_reader["block_footer"]);
 			}
 	
 		}

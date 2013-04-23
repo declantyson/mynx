@@ -13,7 +13,11 @@ public partial class Page : System.Web.UI.Page
 	public string currentTheme = ""; // this will be defined in the database later on
 	public int themecount = 0;
 	public string existing_sidebar_code;
+	public string existing_toolbar_code;
+	public string existing_footer_code;
 	public int existing_block_sidebar;
+	public int existing_block_toolbar;
+	public int existing_block_footer;
 
 	protected void Page_PreInit(object sender, EventArgs e)	{
 		SqlConnection connection = new SqlConnection(GetConnectionString());
@@ -67,7 +71,11 @@ public partial class Page : System.Web.UI.Page
 				while(settings_reader.Read())
 				{	
 					existing_sidebar_code = settings_reader["sidebar_code"].ToString();
+					existing_toolbar_code = settings_reader["toolbar_code"].ToString();
+					existing_footer_code = settings_reader["footer_code"].ToString();
 					existing_block_sidebar = Convert.ToInt32(settings_reader["block_sidebar"]);
+					existing_block_toolbar = Convert.ToInt32(settings_reader["block_toolbar"]);
+					existing_block_footer = Convert.ToInt32(settings_reader["block_footer"]);
 				}
 		
 			}
@@ -83,7 +91,11 @@ public partial class Page : System.Web.UI.Page
 			}
 
 			sidebar_code.Text = existing_sidebar_code;
+			toolbar_code.Text = existing_toolbar_code;
+			footer_code.Text = existing_footer_code;
 			block_sidebar.Checked = intToBool(existing_block_sidebar);
+			block_toolbar.Checked = intToBool(existing_block_toolbar);
+			block_footer.Checked = intToBool(existing_block_footer);
         }
     }
 
@@ -92,7 +104,7 @@ public partial class Page : System.Web.UI.Page
 
 		try {
             connection.Open();
-			using (SqlCommand cmd =new SqlCommand("UPDATE settings SET current_theme=@theme" + " WHERE settings_id=1", connection))
+			using (SqlCommand cmd =new SqlCommand("UPDATE settings SET current_theme=@theme WHERE settings_id=1", connection))
 			{
 				cmd.Parameters.AddWithValue("@theme", themes.SelectedItem.Text);
 	            cmd.CommandType = System.Data.CommandType.Text;
@@ -117,11 +129,17 @@ public partial class Page : System.Web.UI.Page
 
 		try {
             connection.Open();
-			using (SqlCommand cmd =new SqlCommand("UPDATE settings SET block_sidebar=@bs, sidebar_code=@sc WHERE settings_id=1", connection))
+			using (SqlCommand cmd =new SqlCommand("UPDATE settings SET block_sidebar=@bs, sidebar_code=@sc, block_toolbar=@bt, toolbar_code=@tc, block_footer=@bf, footer_code=@fc WHERE settings_id=1", connection))
 			{
 				int i = block_sidebar.Checked ? 1 : 0;
+				int j = block_toolbar.Checked ? 1 : 0;
+				int k = block_footer.Checked ? 1 : 0;
 				cmd.Parameters.AddWithValue("@bs", i);
-				cmd.Parameters.AddWithValue("@sc", sidebar_code.Text);
+				cmd.Parameters.AddWithValue("@sc", sidebar_code.Text);				
+				cmd.Parameters.AddWithValue("@bt", j);
+				cmd.Parameters.AddWithValue("@tc", toolbar_code.Text);
+				cmd.Parameters.AddWithValue("@bf", k);
+				cmd.Parameters.AddWithValue("@fc", footer_code.Text);
 	            cmd.CommandType = System.Data.CommandType.Text;
 	            cmd.ExecuteNonQuery();
 			}
