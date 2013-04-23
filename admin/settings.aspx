@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="content-box block-settings">
-			<h2>Blocks<br><span><small>Content you want to appear on every page</span></small></h2>
+			<h2>Blocks<br><span><small>Content you want to appear on every page.</span></small></h2>
 
 			<h3>Sidebar</h3>
 			<div class="block-sidebar">

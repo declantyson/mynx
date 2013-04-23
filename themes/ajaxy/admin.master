@@ -32,13 +32,14 @@
 		</div>
 	</body>
 	<script src="/lib/jquery-1.8.3.min.js"></script>
-	<script src="/lib/ajaxfileupload.js"></script>
 	<script src="/lib/jquery-ui-1.9.2.min.js"></script>
 	<script src="/lib/modernizr.custom.min.js"></script>
+	<script src="/lib/jquery.masonry.min.js"></script>
 	<script src="/themes/ajaxy/ajaxy.js"></script>
 	<script type="text/javascript">
 		widgetCode = {
-			image: '<div class="col edit-col col-33 movable resizable editable"><iframe src="upload.aspx" style="width: 100%" class="upload-form"></iframe></div>',
+			image: '<div class="col edit-col col-33 movable resizable editable"><iframe src="/admin/upload" style="width: 100%" class="upload-form"></iframe></div>',
+			chooseImage: '<div class="col edit-col col-33 movable resizable editable"><iframe src="/admin/imagelibrary_min" style="width: 100%" class="image-lib-frame"></iframe></div>',
 			<%= jsObject %>
 		}
 	</script>

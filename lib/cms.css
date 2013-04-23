@@ -41,6 +41,10 @@
 	cursor:pointer;
 }
 
+.upload-image {
+	cursor: pointer;
+}
+
 .edit-col textarea {
 	display: block;
 	resize: vertical;
@@ -55,4 +59,8 @@
 	float: left;
 	width: 31%;
 	padding: 1%;
+}
+
+.edit-image img {
+	width: 100%;
 }

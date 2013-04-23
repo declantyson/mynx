@@ -93,6 +93,7 @@ iframe {
 	height: auto;
 	border: none;
 	overflow: hidden;
+	clear: both;
 }
 
 .upload-form {

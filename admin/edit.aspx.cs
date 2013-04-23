@@ -90,7 +90,7 @@ public partial class Page : System.Web.UI.Page
             throw new Exception(msg);
         } finally {
             connection.Close();
-            Response.Redirect("/admin/editpage.aspx");
+            Response.Redirect("/admin/pages/");
         }
     }
 	
