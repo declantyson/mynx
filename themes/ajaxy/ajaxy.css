@@ -38,6 +38,10 @@ h2 span {
 	color: #d3970f;
 }
 
+h3 {
+	margin: 0 0 5px 0;
+}
+
 .main {
 	background-repeat: no-repeat;
 	background-position: center;

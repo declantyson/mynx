@@ -7,17 +7,19 @@
 
 .sidebar {
 	float: left;
-	width: 240px;
+	width: 24%;
 	position: relative;
 }
 
 .content {
 	float: right;
 	max-width: 1325px;
-	width: 100%;
-	width: -webkit-calc(100% - 250px);
-	width: -moz-calc(100% - 250px);
+	width: 74%;
 	position: relative;
+}
+
+.content.no-sidebar {
+	width: 100%;
 }
 
 .sidebar, .content-box {
@@ -93,6 +95,16 @@ iframe {
 
 .col img {
 	width: 100%;
+}
+
+.block-sidebar {
+	padding: 10px 0;
+}
+
+.block-settings textarea {
+	width: 100%;
+	resize: none;
+	min-height: 100px;
 }
 
 @media screen and (max-width: 590px) {
