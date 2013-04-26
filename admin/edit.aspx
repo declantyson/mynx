@@ -25,7 +25,7 @@
 	<div class="clearfix"></div>
 
 	<div class="widget-col col-33 new-col main-widget-editor">
-		<!-- <p class="new-content-box">Add content box</p> -->
+		<p class="new-content-box">Add content box</p>
 		<p class="new-html">Add raw HTML column</p>
 	</div>
 	<div class="clearfix"></div>
@@ -37,7 +37,7 @@
 	</div>
 
 	<div class="widget-col col-33 new-col main-widget-editor">
-		<!-- <p class="new-content-box">Add content box</p> -->
+		<p class="new-content-box">Add content box</p>
 		<p class="new-html">Add raw HTML column</p>
 	</div>
 

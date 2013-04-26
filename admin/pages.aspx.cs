@@ -52,6 +52,7 @@ public partial class Page : System.Web.UI.Page
 				output += "<tr>";
 				output += "<td><a href='/admin/edit/" + page_reader["slug"].ToString() + "'>" + page_reader["title"].ToString() + "</a></td>";
 				output += "<td>" + page_reader["slug"].ToString() + "</td>";
+				output += "<td>Delete</td>";
 				output += "</tr>";
 			}
 	

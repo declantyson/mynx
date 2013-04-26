@@ -36,10 +36,6 @@
 	margin-bottom: 10px;
 }
 
-.content-box {
-	clear: both;
-}
-
 .clearfix, .clear {
 	clear:both;
 }
@@ -116,6 +112,15 @@ iframe {
 	width: 100%;
 	resize: none;
 	min-height: 100px;
+}
+
+.error {
+	background: white;
+	border: solid 2px red;
+	color: red;
+	font-weight: bold;
+	padding: 10px;
+	margin: 10px 0;
 }
 
 @media screen and (max-width: 590px) {
