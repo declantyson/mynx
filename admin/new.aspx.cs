@@ -75,11 +75,12 @@ public partial class Page : System.Web.UI.Page
 	        if(count == 0) {
 		        try {
 					connection.Open();
-					using (SqlCommand cmd =new SqlCommand("INSERT INTO pages (title,slug,text) VALUES (@pageTitle,@slug,@text)", connection))
+					using (SqlCommand cmd =new SqlCommand("INSERT INTO pages (title,slug,text,cat) VALUES (@pageTitle,@slug,@text,@cat)", connection))
 					{
 					cmd.Parameters.AddWithValue("@pageTitle", Request["title"]);
 					cmd.Parameters.AddWithValue("@slug", Request["slug"]);
 					cmd.Parameters.AddWithValue("@text", Request["text"]);
+					cmd.Parameters.AddWithValue("@cat", Request["cat"]);
 		            cmd.CommandType = System.Data.CommandType.Text;
 		            cmd.ExecuteNonQuery();
 					}

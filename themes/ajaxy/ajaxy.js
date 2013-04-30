@@ -34,8 +34,16 @@ function prettyTransition(){
 	});
 
 	setTimeout(function(){
+		if(window.location.pathname.split("/")[1] === "pages") {
+
+			// THIS NEEDS WORK - SHOULDN'T PULL IN SIDEBAR AGAIN
+
+			url = window.location.pathname;
+		} else {
+			url = '/themes/ajaxy/page.aspx?page=' + page; 
+		}
 		$.ajax({
-			url: '/themes/ajaxy/page.aspx?page=' + page,
+			url: url,
 			type: 'GET'
 		}).done(function(data){
 			$('.main').css({
@@ -120,7 +128,7 @@ glob = {
 $(document).ready(function(){
 	glob.firstload = true;
 	if(Modernizr.csstransitions) {
-		if(window.location.pathname.split("/")[1] === "admin") {
+		if(window.location.pathname.split("/")[1] === "admin" || window.location.pathname.split("/")[1] === "pages") {
 			$('.main').css({
 				opacity : 1,
 				'background-image' : 'none'

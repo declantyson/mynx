@@ -15,6 +15,14 @@ a {
 	color: inherit;
 }
 
+.sidebar a { 
+	text-decoration: none;
+}
+
+.sidebar a .content-box {
+	padding: 10px 20px;
+}
+
 h1, h2, h3 {
 	font-weight: 700;
 }

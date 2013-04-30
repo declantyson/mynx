@@ -14,6 +14,10 @@
 
 			<label for="slug" style="width:100px;display:inline-block">Slug</label>
 			<input name="slug" type="text" />
+			<div style="clear:both;"></div>			
+
+			<label for="cat" style="width:100px;display:inline-block">Category</label>
+			<input name="cat" type="text" />
 			<div style="clear:both;"></div>
 			
 			<input id="text" type="hidden" name="text" />

@@ -14,6 +14,10 @@
 			<label for="slug" style="width:100px;display:inline-block">Slug</label>
 			<input name="slug" type="text" value="<%= slug %>"/>
 			<div style="clear:both;"></div>
+
+			<label for="cat" style="width:100px;display:inline-block">Category</label>
+			<input name="cat" type="text" value="<%= cat %>"/>
+			<div style="clear:both;"></div>
 			
 			<input type="hidden" name="id" value="<%= id %>" />
 			<input id="text" type="hidden" name="text" value="<%= text %>" />

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Web;
-using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
@@ -11,16 +10,16 @@ using System.Data.Sql;
 public partial class Page : System.Web.UI.Page
 {
 	public string currentTheme = "";
-	public string pageTitle = "";
+	public string title = "";
+	public string data = "";
 	public string slug = "";
-	public string text = "";
 	public string cat = "";
-	public string id = "";
 
 	protected void Page_PreInit(object sender, EventArgs e)	{
 		SqlConnection connection = new SqlConnection(GetConnectionString());
 		string sql_string = "SELECT TOP 1 * FROM settings";
-        try	{
+        try
+		{
 			connection.Open();
 			SqlDataReader settings_reader = null;
 			SqlCommand sql_command = new SqlCommand(sql_string, connection);
@@ -31,22 +30,30 @@ public partial class Page : System.Web.UI.Page
 				currentTheme = settings_reader["current_theme"].ToString();
 			}
 	
-		} catch (System.Data.SqlClient.SqlException ex) {
+		}
+		catch (System.Data.SqlClient.SqlException ex)
+		{
 			string msg = "D'oh, something's not right...";
 			msg += ex.Message;
 			throw new Exception(msg);
-		} finally {
+		}
+		finally
+		{
 			connection.Close();
 		}
 
-	    MasterPageFile = "/themes/" + currentTheme + "/admin.master";
+	    MasterPageFile = "/themes/" + currentTheme + "/master.master";
 	}
 
     protected void Page_Load(object sender, EventArgs e) {        
-    	slug = Request.QueryString["page"];
+		cat = Request.QueryString["cat"];
+		if(cat != "" && cat != null) {
+			cat = "WHERE cat = '" + cat + "'";
+		}
 		SqlConnection connection = new SqlConnection(GetConnectionString());
-		string sql_string = "SELECT * FROM pages WHERE slug = '" + slug + "'";
-        try	{
+		string sql_string = "SELECT * FROM pages " + cat;
+        try
+		{
 			connection.Open();
 			SqlDataReader page_reader = null;
 			SqlCommand sql_command = new SqlCommand(sql_string, connection);
@@ -54,47 +61,22 @@ public partial class Page : System.Web.UI.Page
 			
 			while(page_reader.Read())
 			{	
-				pageTitle = page_reader["title"].ToString();
-				id = page_reader["id"].ToString();
+				title = page_reader["title"].ToString();
 				slug = page_reader["slug"].ToString();
-				text = page_reader["text"].ToString();
-				cat = page_reader["cat"].ToString();
+				data += "<a href='/" + slug + "'>" + title + "</a><br/>";
 			}
-
-			text = text.Replace("\"", "'");
-			text = text.Trim();
 	
-		} catch (System.Data.SqlClient.SqlException ex)	{
+		}
+		catch (System.Data.SqlClient.SqlException ex)
+		{
 			string msg = "D'oh, something's not right...";
 			msg += ex.Message;
 			throw new Exception(msg);
-		} finally {
+		}
+		finally
+		{
 			connection.Close();
-		}	
-    }
-
-    protected void update_page(object sender, EventArgs e) {
-    	SqlConnection connection = new SqlConnection(GetConnectionString());
-
-		try {
-            connection.Open();
-			using (SqlCommand cmd =new SqlCommand("UPDATE pages SET title=@pageTitle,slug=@slug,text=@text,cat=@cat WHERE id=" + Request["id"], connection))
-			{
-			cmd.Parameters.AddWithValue("@pageTitle", Request["title"]);
-			cmd.Parameters.AddWithValue("@slug", Request["slug"]);
-			cmd.Parameters.AddWithValue("@text", Request["text"]);
-			cmd.Parameters.AddWithValue("@cat", Request["cat"]);
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.ExecuteNonQuery();
-			}
-        } catch (System.Data.SqlClient.SqlException ex) {
-            string msg = "=( Something's not right! ";
-            msg += ex.Message;
-            throw new Exception(msg);
-        } finally {
-            connection.Close();
-            Response.Redirect("/admin/pages/");
-        }
+		}
     }
 	
 	public string GetConnectionString() {
