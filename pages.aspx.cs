@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
@@ -53,13 +54,15 @@ public partial class Page : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e) {        
 		cat = Request.QueryString["cat"];
 		if(cat != "" && cat != null) {
+			cat = cat.Replace("-", " ");
+			cat = ToTitleCase(cat);
 			pageTitle = cat;
-			cat = "WHERE cat = '" + cat + "'";
+			cat = "AND cat = '" + cat + "'";
 		} else {
 			pageTitle = "Page Directory";
 		}
 		SqlConnection connection = new SqlConnection(GetConnectionString());
-		string sql_string = "SELECT * FROM pages " + cat;
+		string sql_string = "SELECT * FROM pages WHERE slug != 'home' " + cat;
         try
 		{
 			connection.Open();
@@ -100,4 +103,10 @@ public partial class Page : System.Web.UI.Page
 
 	    return (request["X-Requested-With"] == "XMLHttpRequest") || ((request.Headers != null) && (request.Headers["X-Requested-With"] == "XMLHttpRequest"));
 	}
+
+	public string ToTitleCase(string inputString)
+    {
+        System.Globalization.TextInfo txtInfo = System.Globalization.CultureInfo.CurrentCulture.TextInfo;
+        return txtInfo.ToTitleCase(inputString);
+    }
 }

@@ -16,7 +16,12 @@
 			<div style="clear:both;"></div>
 
 			<label for="cat" style="width:100px;display:inline-block">Category</label>
-			<input name="cat" type="text" value="<%= cat %>"/>
+			<label class="select-label"></label>
+			<select name="cat_drop">
+				<option value="new">Add new category</option>
+				<%= catOptions %>
+			</select>
+			<input name="cat_text" type="text" class="category-input"/>
 			<div style="clear:both;"></div>
 			
 			<input type="hidden" name="id" value="<%= id %>" />

@@ -38,6 +38,10 @@ h1 {
 	-o-transition: all 1s;
 }
 
+h1.directory-title {
+	display: none !important;
+}
+
 h2 {
 	margin: 0 0 10px 0;
 }
@@ -151,7 +155,7 @@ h3 {
 select {
 	padding: 7px;
 	margin-left: 20px;
-	width: 200px;
+	width: 170px;
 	border: none;
 	outline: none;
 	background-color: rgb(51, 51, 51);
@@ -178,7 +182,7 @@ select {
 	pointer-events: none;
 	position: relative;
 	z-index: 50;
-	left: 190px;
+	left: 160px;
 	top: 4px;
 }
 
@@ -221,6 +225,12 @@ input[type=button] {
 input[type=submit]:hover,
 input[type=button]:hover {
 	background-color: #86600a;
+}
+
+input[type=text] {
+	margin-left: 20px;
+	margin-bottom: 7px;
+	padding: 7px;
 }
 
 @media screen and (max-width: 640px) {

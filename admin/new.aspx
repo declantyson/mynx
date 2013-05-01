@@ -10,15 +10,20 @@
 		<div>
 			<label for="title" style="width:100px;display:inline-block">Title</label>
 			<input name="title" type="text"/>
-			<div style="clear:both;"></div>
+			<div class="clear"></div>
 
 			<label for="slug" style="width:100px;display:inline-block">Slug</label>
 			<input name="slug" type="text" />
-			<div style="clear:both;"></div>			
+			<div class="clear"></div>			
 
 			<label for="cat" style="width:100px;display:inline-block">Category</label>
-			<input name="cat" type="text" />
-			<div style="clear:both;"></div>
+			<label class="select-label"></label>
+			<select name="cat_drop">
+				<option value="new">Add new category</option>
+				<%= catOptions %>
+			</select>
+			<input name="cat_text" type="text" class="category-input"/>
+			<div class="clear"></div>
 			
 			<input id="text" type="hidden" name="text" />
 

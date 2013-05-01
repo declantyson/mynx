@@ -49,7 +49,7 @@ function prettyTransition(){
 			});
 
 			$('.content').html(data);
-			$('h1#title').text(params.title);
+			$('h1#title').text($('title').text());
 
 			$('.content').css({
 				left : '50px',

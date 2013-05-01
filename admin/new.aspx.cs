@@ -12,10 +12,13 @@ public partial class Page : System.Web.UI.Page
 {
 	public string currentTheme = "";
 	public string pageTitle = "";
+	public string catOptions = "";
 	public string slug = "";
 	public string text = "";
 	public string id = "";
+	public string cat = "";
 	public int count = 0;
+
 	protected void Page_PreInit(object sender, EventArgs e)	{
 		SqlConnection connection = new SqlConnection(GetConnectionString());
 		string sql_string = "SELECT TOP 1 * FROM settings";
@@ -42,7 +45,31 @@ public partial class Page : System.Web.UI.Page
 	}
 
     protected void Page_Load(object sender, EventArgs e) {        
+		SqlConnection connection = new SqlConnection(GetConnectionString());
 
+		try {
+            connection.Open();
+			string sql_string = "SELECT DISTINCT cat FROM pages";
+			SqlDataReader page_reader = null;
+			SqlCommand sql_command = new SqlCommand(sql_string, connection);
+			page_reader = sql_command.ExecuteReader();
+			string c = "";
+
+			while(page_reader.Read())
+			{	
+				c = page_reader["cat"].ToString();
+				catOptions += "<option value='" + c.Replace(" ", "_") + "'>" + c + "</option>";
+			}
+
+			text = text.Replace("\"", "'");
+			text = text.Trim();
+        } catch (System.Data.SqlClient.SqlException ex) {
+            string msg = "=( Something's not right! ";
+            msg += ex.Message;
+            throw new Exception(msg);
+        } finally {
+			connection.Close();
+		}
     }
 
     protected void update_page(object sender, EventArgs e) {
@@ -80,7 +107,11 @@ public partial class Page : System.Web.UI.Page
 					cmd.Parameters.AddWithValue("@pageTitle", Request["title"]);
 					cmd.Parameters.AddWithValue("@slug", Request["slug"]);
 					cmd.Parameters.AddWithValue("@text", Request["text"]);
-					cmd.Parameters.AddWithValue("@cat", Request["cat"]);
+					if(Request["cat_drop"] == "new") {
+						cmd.Parameters.AddWithValue("@cat", Request["cat_text"]);
+					} else {
+						cmd.Parameters.AddWithValue("@cat", Request["cat_drop"].Replace("_", " "));
+					}
 		            cmd.CommandType = System.Data.CommandType.Text;
 		            cmd.ExecuteNonQuery();
 					}

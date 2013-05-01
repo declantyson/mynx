@@ -12,6 +12,7 @@ public partial class Page : System.Web.UI.Page
 {
 	public string currentTheme = "";
 	public string pageTitle = "";
+	public string catOptions = "";
 	public string slug = "";
 	public string text = "";
 	public string cat = "";
@@ -70,6 +71,33 @@ public partial class Page : System.Web.UI.Page
 			throw new Exception(msg);
 		} finally {
 			connection.Close();
+			try {
+				connection.Open();
+				string sql_cat_string = "SELECT DISTINCT cat FROM pages";
+				SqlDataReader cat_reader = null;
+				SqlCommand sql_cat_command = new SqlCommand(sql_cat_string, connection);
+				cat_reader = sql_cat_command.ExecuteReader();
+				string c = "";
+
+				while(cat_reader.Read())
+				{	
+					c = cat_reader["cat"].ToString();
+					catOptions += "<option";
+					if(c == cat) {
+						catOptions += " selected";
+					}
+					catOptions += " value='" + c.Replace(" ", "_") + "'>" + c + "</option>";
+				}
+
+				text = text.Replace("\"", "'");
+				text = text.Trim();
+	        } catch (System.Data.SqlClient.SqlException ex) {
+	            string msg = "=( Something's not right! ";
+	            msg += ex.Message;
+	            throw new Exception(msg);
+	        } finally {
+				connection.Close();
+			}
 		}	
     }
 
@@ -83,7 +111,11 @@ public partial class Page : System.Web.UI.Page
 			cmd.Parameters.AddWithValue("@pageTitle", Request["title"]);
 			cmd.Parameters.AddWithValue("@slug", Request["slug"]);
 			cmd.Parameters.AddWithValue("@text", Request["text"]);
-			cmd.Parameters.AddWithValue("@cat", Request["cat"]);
+			if(Request["cat_drop"] == "new") {
+				cmd.Parameters.AddWithValue("@cat", Request["cat_text"]);
+			} else {
+				cmd.Parameters.AddWithValue("@cat", Request["cat_drop"].Replace("_", " "));
+			}
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.ExecuteNonQuery();
 			}

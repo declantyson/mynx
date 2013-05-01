@@ -3,15 +3,7 @@
 <asp:Content ID="content" ContentPlaceHolderID="content" Runat="Server">
 	<title><%= pageTitle %></title>
 
-	<script>
-		params = {
-			title : $('title').text(),
-			bgcolor : '#898989',
-			bgimgposhorizontal : 'right',
-			bgimgposvertical : 'bottom',
-		}
-	</script>
-
+	<h1 class="directory-title"><%= pageTitle %></h1>
 
 	<div class="content-box page-directory">
 		<%= data %>
