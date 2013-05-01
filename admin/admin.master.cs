@@ -52,6 +52,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
    	    SqlConnection connection = new SqlConnection(GetConnectionString());
    	    string widget_id = "";
    	    string widget_name = "";
+   	    string widget_text = "";
    	    string widget_code = "";
 
     	string sql_string = "SELECT * FROM widgets";
@@ -65,10 +66,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
 			{	
 				widget_id = widget_reader["widget_id"].ToString();
 				widget_name = widget_reader["widget_name"].ToString();
+				widget_text = widget_reader["widget_text"].ToString();
 				widget_code = widget_reader["widget_code"].ToString();
 			}
 
-			jsObject += widget_name + " : '" + widget_code + "', \n";
+			jsObject += "widgetCode." + widget_name + " = { text : '" + widget_text + "', code : '" + widget_code + "' };\n";
 	
 		} catch (System.Data.SqlClient.SqlException ex)	{
 			string msg = "D'oh, something's not right...";
