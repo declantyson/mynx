@@ -35,9 +35,6 @@ function prettyTransition(){
 
 	setTimeout(function(){
 		if(window.location.pathname.split("/")[1] === "pages") {
-
-			// THIS NEEDS WORK - SHOULDN'T PULL IN SIDEBAR AGAIN
-
 			url = window.location.pathname;
 		} else {
 			url = '/themes/ajaxy/page.aspx?page=' + page; 
@@ -128,7 +125,7 @@ glob = {
 $(document).ready(function(){
 	glob.firstload = true;
 	if(Modernizr.csstransitions) {
-		if(window.location.pathname.split("/")[1] === "admin" || window.location.pathname.split("/")[1] === "pages") {
+		if(window.location.pathname.split("/")[1] === "admin") {
 			$('.main').css({
 				opacity : 1,
 				'background-image' : 'none'
@@ -147,7 +144,7 @@ $(document).ready(function(){
 				prettyTransition();
 			};
 			
-			$('a.internal').live('click', function(e){
+			$('a.internal, .page-directory a').live('click', function(e){
 				e.preventDefault();
 				href = $(this).attr("href");
 				history.pushState('', 'New URL: ' + href, href);

@@ -11,6 +11,7 @@ public partial class Page : System.Web.UI.Page
 {
 	public string currentTheme = "";
 	public string title = "";
+	public string pageTitle = "";
 	public string data = "";
 	public string slug = "";
 	public string cat = "";
@@ -41,14 +42,21 @@ public partial class Page : System.Web.UI.Page
 		{
 			connection.Close();
 		}
+		if(IsAjaxRequest(Request)) {
 
-	    MasterPageFile = "/themes/" + currentTheme + "/master.master";
+	    	MasterPageFile = "/themes/" + currentTheme + "/blank.master";
+    	} else {
+    		MasterPageFile = "/themes/" + currentTheme + "/master.master";
+    	}
 	}
 
     protected void Page_Load(object sender, EventArgs e) {        
 		cat = Request.QueryString["cat"];
 		if(cat != "" && cat != null) {
+			pageTitle = cat;
 			cat = "WHERE cat = '" + cat + "'";
+		} else {
+			pageTitle = "Page Directory";
 		}
 		SqlConnection connection = new SqlConnection(GetConnectionString());
 		string sql_string = "SELECT * FROM pages " + cat;
@@ -81,5 +89,15 @@ public partial class Page : System.Web.UI.Page
 	
 	public string GetConnectionString() {
        return System.Configuration.ConfigurationManager.ConnectionStrings["mynxConnectionString"].ConnectionString;
-    } 
+    }
+
+    public bool IsAjaxRequest(HttpRequest request)
+	{
+	    if (request == null)
+	    {
+	        throw new ArgumentNullException("request");
+	    }
+
+	    return (request["X-Requested-With"] == "XMLHttpRequest") || ((request.Headers != null) && (request.Headers["X-Requested-With"] == "XMLHttpRequest"));
+	}
 }

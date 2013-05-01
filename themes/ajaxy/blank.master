@@ -3,3 +3,7 @@
 <asp:ContentPlaceHolder id="ajax_content" runat="server">
 
 </asp:ContentPlaceHolder>
+
+<asp:ContentPlaceHolder id="content" runat="server">
+
+</asp:ContentPlaceHolder>
