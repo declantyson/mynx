@@ -1,5 +1,4 @@
-<%@ Page Title="" MasterPageFile="/themes/ajaxy/blank.master" Language="C#" AutoEventWireup="true" CodeFile="page.aspx.cs" Inherits="Page" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/themes/ajaxy/blank.master" Inherits="mynx.themes.ajaxy.page" Codebehind="page.aspx.cs" %>
 
 <asp:Content ID="content" ContentPlaceHolderID="ajax_content" Runat="Server">
 	<title><%= title %></title>

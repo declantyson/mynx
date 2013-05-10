@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="/themes/mundane/master.master" AutoEventWireup="true" CodeFile="settings.aspx.cs" Inherits="Page" ValidateRequest="false"  %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/themes/mundane/master.master" AutoEventWireup="true" Inherits="mynx.admin.settings" Codebehind="settings.aspx.cs" %>
 
 <asp:Content ID="content" ContentPlaceHolderID="content" Runat="Server">
 	<title>Website settings</title>
@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="content-box block-settings">
-			<h2>Blocks<br><span><small>Content you want to appear on every page.</span></small></h2>
+			<h2>Blocks<br><small><span>Content you want to appear on every page.</span></small></h2>
 
 			<h3>Sidebar</h3>
 			<div class="block-sidebar">

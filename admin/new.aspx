@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="/themes/mundane/master.master" AutoEventWireup="true" CodeFile="new.aspx.cs" Inherits="Page" ValidateRequest="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/themes/mundane/master.master" AutoEventWireup="true" Inherits="mynx.admin._new" ValidateRequest="false" Codebehind="new.aspx.cs" %>
 
 <asp:Content ID="content" ContentPlaceHolderID="content" Runat="Server">
 

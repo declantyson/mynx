@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="/admin/empty.master" AutoEventWireup="true" CodeFile="upload.aspx.cs" Inherits="Page" ValidateRequest="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/admin/empty.master" Inherits="mynx.admin.upload" ValidateRequest="false" Codebehind="upload.aspx.cs" %>
 <%@ Register TagPrefix="CuteWebUI" Namespace="CuteWebUI" Assembly="CuteWebUI.AjaxUploader" %>
 
 
@@ -9,7 +9,7 @@
         <li>Maximum file size: 2048 KB</li>
         <li>Allowed file types: jpeg, jpg, gif,png </li>
     </ul>
-	<form runat="server" class="uploader">
+	<form id="Form1" runat="server" class="uploader">
 		<asp:Label ID="feedback" runat="server"></asp:Label>
 		<CuteWebUI:Uploader id="uploader" InsertText="Upload a file" OnFileUploaded="uploaded" runat="server">
 			<ValidateOption AllowedFileExtensions="jpeg,jpg,gif,png" MaxSizeKB="2048" />

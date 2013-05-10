@@ -9,37 +9,34 @@ using System.Data.Sql;
 
 namespace mynx.themes.ajaxy
 {
-    public partial class page : System.Web.UI.Page
+    public partial class master : System.Web.UI.MasterPage
     {
-        public string title = "";
-        public string data = "";
-        public string slug = "";
-
-        protected void Page_PreInit(object sender, EventArgs e)
-        {
-
-        }
+        public string sidebar_code = "";
+        public string toolbar_code = "";
+        public string footer_code = "";
+        public int block_sidebar = 0;
+        public int block_toolbar = 0;
+        public int block_footer = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            slug = Request.QueryString["page"];
-            if (slug == "")
-            {
-                slug = "home";
-            }
             SqlConnection connection = new SqlConnection(GetConnectionString());
-            string sql_string = "SELECT TOP 1 * FROM pages WHERE slug = '" + slug + "'";
+            string sql_string = "SELECT TOP 1 * FROM settings";
             try
             {
                 connection.Open();
-                SqlDataReader page_reader = null;
+                SqlDataReader settings_reader = null;
                 SqlCommand sql_command = new SqlCommand(sql_string, connection);
-                page_reader = sql_command.ExecuteReader();
+                settings_reader = sql_command.ExecuteReader();
 
-                while (page_reader.Read())
+                while (settings_reader.Read())
                 {
-                    title = page_reader["title"].ToString();
-                    data = page_reader["text"].ToString();
+                    sidebar_code = settings_reader["sidebar_code"].ToString();
+                    toolbar_code = settings_reader["toolbar_code"].ToString();
+                    footer_code = settings_reader["footer_code"].ToString();
+                    block_sidebar = Convert.ToInt32(settings_reader["block_sidebar"]);
+                    block_toolbar = Convert.ToInt32(settings_reader["block_toolbar"]);
+                    block_footer = Convert.ToInt32(settings_reader["block_footer"]);
                 }
 
             }

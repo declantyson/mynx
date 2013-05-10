@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeFile="master.cs" Inherits="MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="True" Inherits="mynx.themes.mundane.master" Codebehind="master.master.cs" %>
 
 <!doctype html>
 <html>

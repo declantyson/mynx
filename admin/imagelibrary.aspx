@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="/themes/mundane/master.master" AutoEventWireup="true" CodeFile="imagelibrary.aspx.cs" Inherits="Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/themes/mundane/master.master" AutoEventWireup="true" Inherits="mynx.admin.imagelibrary" Codebehind="imagelibrary.aspx.cs" %>
 
 <asp:Content ID="content" ContentPlaceHolderID="content" Runat="Server">
 	<title>Image library</title>

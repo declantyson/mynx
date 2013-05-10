@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="themes/mundane/master.master" AutoEventWireup="true" CodeFile="pages.aspx.cs" Inherits="Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="themes/mundane/master.master" AutoEventWireup="true" Inherits="mynx.pages" Codebehind="pages.aspx.cs" %>
 
 <asp:Content ID="content" ContentPlaceHolderID="content" Runat="Server">
 	<title><%= pageTitle %></title>

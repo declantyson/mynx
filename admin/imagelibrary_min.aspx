@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="/admin/empty.master" AutoEventWireup="true" CodeFile="imagelibrary_min.aspx.cs" Inherits="Page" ValidateRequest="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/admin/empty.master" Inherits="mynx.admin.imagelibrary_min" ValidateRequest="false" Codebehind="imagelibrary_min.aspx.cs" %>
 
 <asp:Content ID="content" ContentPlaceHolderID="content" Runat="Server">
 	<title>Image library</title>
