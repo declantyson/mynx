@@ -7,9 +7,12 @@
             <h2>Widgets<br>
                 <small><span>There are currently <%= installedWidgetCount %> widgets installed.</span></small>
             </h2>
-            <%= installedWidgets %>
+            <label for="installedwidgetlist">Installed widgets:</label><label class='select-label'></label>
+            <asp:DropDownList name="installedwidgetlist" id="installedwidgetlist" runat="server">
+	        </asp:DropDownList>
+           <asp:Button id="reinstall_widget" OnClick="reinstall_widget_Click" text="Re-install this widget" runat="server"/>
         </div>
-	    <label for="widgets">Install new widget</label>
+	    <label for="widgetlist">Install new widget</label>
 	    <label class="select-label"></label>
 	    <asp:DropDownList name="widgetlist" id="widgetlist" runat="server">
 	    </asp:DropDownList>

@@ -17,7 +17,6 @@ namespace mynx.admin
         public int widgetCount = 0;
         public int installedWidgetCount = 0;
         public string currentTheme = "";
-        public string installedWidgets = "";
         public List<string> widgetNames = new List<string>();
 
         protected void Page_PreInit(object sender, EventArgs e)
@@ -35,22 +34,6 @@ namespace mynx.admin
                 {
                     currentTheme = settings_reader["current_theme"].ToString();
                 }
-                connection.Close();
-                
-                string widget_sql = "SELECT * FROM widgets";
-                connection.Open();
-                SqlDataReader widgets_reader = null;
-                SqlCommand widget_command = new SqlCommand(widget_sql, connection);
-                widgets_reader = widget_command.ExecuteReader();
-
-                installedWidgets += "<label>Installed widgets:</label><label class='select-label'></label><select>";
-                while (widgets_reader.Read())
-                {
-                    widgetNames.Add(widgets_reader["widget_name"].ToString());
-                    installedWidgets += "<option>" + widgets_reader["widget_name"].ToString() + "</option>";
-                    installedWidgetCount++;
-                }
-                installedWidgets += "</select>";
             }
             catch (System.Data.SqlClient.SqlException ex)
             {
@@ -68,6 +51,33 @@ namespace mynx.admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlConnection connection = new SqlConnection(GetConnectionString());
+            try
+            {
+                string widget_sql = "SELECT * FROM widgets";
+                connection.Open();
+                SqlDataReader widgets_reader = null;
+                SqlCommand widget_command = new SqlCommand(widget_sql, connection);
+                widgets_reader = widget_command.ExecuteReader();
+
+                while (widgets_reader.Read())
+                {
+                    string wn = widgets_reader["widget_name"].ToString();
+                    widgetNames.Add(wn);
+                    installedwidgetlist.Items.Add(new ListItem(wn, wn));
+                    installedWidgetCount++;
+                }
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                string msg = "D'oh, something's not right...";
+                msg += ex.Message;
+                throw new Exception(msg);
+            }
+            finally
+            {
+                connection.Close();
+            }
             DirectoryInfo directory = new DirectoryInfo(System.Web.HttpContext.Current.Server.MapPath("~/widgets/"));
             FileInfo[] files = directory.GetFiles();
             widgetCount = files.Length;
@@ -92,6 +102,11 @@ namespace mynx.admin
             InstallWidget(widgetlist.SelectedItem.Text);
         }
 
+        protected void reinstall_widget_Click(Object sender, EventArgs e)
+        {
+            ReinstallWidget(installedwidgetlist.SelectedItem.Text);
+        }
+
         protected void InstallWidget(string w)
         {
             Control ctrl = Page.LoadControl("/widgets/" + w + ".ascx");
@@ -105,6 +120,41 @@ namespace mynx.admin
             {
                 connection.Open();
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO widgets (widget_name,widget_code,widget_text,widget_type) VALUES (@name,@code,@text,@type)", connection))
+                {
+                    cmd.Parameters.AddWithValue("@name", w);
+                    cmd.Parameters.AddWithValue("@code", widgetCode);
+                    cmd.Parameters.AddWithValue("@text", widgetText);
+                    cmd.Parameters.AddWithValue("@type", widgetType);
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                string msg = "=( Something's not right! ";
+                msg += ex.Message;
+                throw new Exception(msg);
+            }
+            finally
+            {
+                connection.Close();
+                Response.Redirect("/admin/widgets/");
+            }
+        }
+
+        protected void ReinstallWidget(string w)
+        {
+            Control ctrl = Page.LoadControl("/widgets/" + w + ".ascx");
+            widgetinstallpanel.Controls.Add(ctrl);
+            string widgetCode = ((widgetControl)ctrl).code;
+            string widgetText = ((widgetControl)ctrl).text;
+            string widgetType = ((widgetControl)ctrl).type;
+
+            SqlConnection connection = new SqlConnection(GetConnectionString());
+            try
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("UPDATE widgets SET widget_code=@code,widget_text=@text,widget_type=@type WHERE widget_name = @name", connection))
                 {
                     cmd.Parameters.AddWithValue("@name", w);
                     cmd.Parameters.AddWithValue("@code", widgetCode);
