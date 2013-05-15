@@ -1,0 +1,1 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="chooseImage.ascx.cs" Inherits="mynx.widgets.chooseImage" %>

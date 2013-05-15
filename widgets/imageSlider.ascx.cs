@@ -7,17 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace mynx.widgets
 {
-    public partial class WidgetControl : System.Web.UI.UserControl
+    public partial class imageSlider : widgetControl
     {
-        public string parameters = "";
-        public void test()
-        {
-            Response.Write("test");
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.parameters = "";
+            this.text = "";
+            this.type = "";
+            this.code = "";
         }
     }
 }

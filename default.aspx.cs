@@ -108,7 +108,7 @@ namespace mynx
 
                     Control ctrl = Page.LoadControl("/widgets/" + widgetParams[0] + ".ascx");
                     dataPanel.Controls.Add(ctrl);
-                    ((WidgetControl)ctrl).parameters = widgetParams[1];
+                    ((widgetControl)ctrl).parameters = widgetParams[1];
                 }
                 else
                 {

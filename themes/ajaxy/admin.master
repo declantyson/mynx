@@ -23,7 +23,7 @@
 					<ul>
 						<li><a href="/admin/pages">Pages</a></li>
 						<li><a href="/admin/imagelibrary">Image library</a></li>
-						<li>Widgets</li>
+						<li><a href="/admin/widgets">Widgets</a></li>
 						<li><a href="/admin/settings">Settings</a></li>
 						<li><a href="/">Return to site</a></li>
 					</ul>
@@ -38,14 +38,6 @@
 	<script src="/themes/ajaxy/ajaxy.js"></script>
 	<script type="text/javascript">
 		widgetCode = {};
-		widgetCode.image = { 
-			text : "Upload image",
-			code : '<div class="col edit-col col-33 movable resizable editable"><iframe src="/admin/upload" style="width: 100%" class="upload-form"></iframe></div>'
-		};
-		widgetCode.chooseImage = {
-			text : "Choose image from library",
-			code : '<div class="col edit-col col-33 movable resizable editable"><iframe src="/admin/imagelibrary_min" style="width: 100%" class="image-lib-frame"></iframe></div>'
-		};
 		<%= jsObject %>
 	</script>
 	<script src="/lib/cms.js"></script>

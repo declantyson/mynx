@@ -10,6 +10,6 @@
 namespace mynx.widgets {
     
     
-    public partial class imageSlider {
+    public partial class chooseImage {
     }
 }
