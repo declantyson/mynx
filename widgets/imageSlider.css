@@ -1,0 +1,21 @@
+﻿.slideshow 
+{
+    width: 100%;
+    overflow: hidden;
+}
+
+.slideshow-item 
+{
+    float: left;
+    position:relative;
+}
+
+.slideshow-item img 
+{
+    width: 100%;
+}
+
+.slideshow-wrapper 
+{
+    width: 20000px;
+}

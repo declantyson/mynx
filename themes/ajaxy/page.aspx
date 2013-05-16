@@ -14,5 +14,6 @@
 
 	<img src="/assets/featured-images/<%= slug %>.png" class="bg-img"/>
 
-	<%= data %>
+	<asp:Panel ID="dataPanel" runat="server">
+    </asp:Panel>
 </asp:Content>

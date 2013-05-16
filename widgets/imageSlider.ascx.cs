@@ -13,14 +13,16 @@ namespace mynx.widgets
 {
     public partial class imageSlider : widgetControl
     {
+        public string slideshowItems = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
            this.text = "Add an image slider";
            this.type = "Content";
-           this.code = "<div class='col edit-col col-100 movable resizable content-widget image-slider'><select data-name='album' style='display:block'>";
+           this.code = "<div class='col edit-col col-100 movable resizable widget content-widget image-slider' data-name='imageSlider'><select data-paramname='album' style='display:block'>";
 
            SqlConnection connection = new SqlConnection(GetConnectionString());
-           string sql_string = "SELECT album FROM uploads";
+           string sql_string = "SELECT * FROM uploads";
            try
            {
                connection.Open();
@@ -31,6 +33,7 @@ namespace mynx.widgets
                while (album_reader.Read())
                {
                    this.code += "<option>" + album_reader["album"].ToString() + "</option>";
+                   slideshowItems += "<div class='slideshow-item'><img src='" + album_reader["filepath"].ToString() + "'/></div>";
                }
 
            }
@@ -46,6 +49,8 @@ namespace mynx.widgets
            }
 
            this.code += "</select></div>";
+
+            
         }
 
         public string GetConnectionString()

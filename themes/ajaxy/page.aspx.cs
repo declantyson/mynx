@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using mynx.widgets;
 
 namespace mynx.themes.ajaxy
 {
@@ -53,11 +56,35 @@ namespace mynx.themes.ajaxy
             {
                 connection.Close();
             }
+            renderWidgets(data);
         }
 
         public string GetConnectionString()
         {
             return System.Configuration.ConfigurationManager.ConnectionStrings["mynxConnectionString"].ConnectionString;
-        } 
+        }
+
+        public void renderWidgets(string data)
+        {
+            string[] dataSplit = Regex.Split(data, "/@/");
+
+            int count = 0;
+            foreach (string d in dataSplit)
+            {
+                if (count % 2 == 1)
+                {
+                    string[] widgetParams = Regex.Split(d, "//");
+
+                    Control ctrl = Page.LoadControl("/widgets/" + widgetParams[0] + ".ascx");
+                    dataPanel.Controls.Add(ctrl);
+                    ((widgetControl)ctrl).parameters = widgetParams[1];
+                }
+                else
+                {
+                    dataPanel.Controls.Add(new LiteralControl(d));
+                }
+                count++;
+            }
+        }
     }
 }
