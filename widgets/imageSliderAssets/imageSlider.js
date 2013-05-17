@@ -1,24 +1,35 @@
 ﻿imageslider = {
     c: 0,
-    l: $('.slideshow-item').length
+    l: $('.slideshow-item').length,
+    iw : $('.slideshow-item').outerWidth()
 }
 
 $(document).ready(function () {
-    $(window).load(function () {
+    $('img').load(function () {
         slideshowSize();
+    });
+    $(window).load(function () {
         setTimeout(function () { slide(1, 5000) }, 5000)
     });
     $(window).resize(function () {
         slideshowSize();
     });
+
+    $('.right-arrow').click(function () {
+        slide(1, 10000);
+    });
+
+    $('.left-arrow').click(function () {
+        slide(-1, 10000);
+    });
 });
 
 function slideshowSize() {
-    console.log($('.slideshow').width());
     $('.slideshow-item').css({
         width: $('.slideshow').width()
     });
     $('.slideshow-wrapper').width($('.slideshow-item').width() * imageslider.l);
+    imageslider.iw = $('.slideshow-item').outerWidth();
 }
 
 function slide(dir, timeout) {
@@ -31,7 +42,7 @@ function slide(dir, timeout) {
     }
 
     $('.slideshow-item').animate({
-        left: -((imageslider.c + dir) * $('.slideshow-item').width())
+        left: -((imageslider.c + dir) * imageslider.iw)
     }, 1000);
 
     imageslider.c += dir;

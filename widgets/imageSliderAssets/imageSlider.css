@@ -1,0 +1,45 @@
+﻿.slideshow 
+{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slideshow-item 
+{
+    float: left;
+    position:relative;
+}
+
+.slideshow-item img 
+{
+    width: 100%;
+}
+
+.slideshow-wrapper 
+{
+    width: 20000px;
+}
+
+.slideshow .left-arrow, .slideshow .right-arrow 
+{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 64px;
+    cursor: pointer;
+    z-index: 200;
+}
+
+.slideshow .left-arrow 
+{
+    background-image: url(agt_back.png);
+    left: 0px;
+}
+.slideshow .right-arrow 
+{
+    background-image: url(agt_forward.png);
+    right: 0px;
+}
