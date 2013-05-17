@@ -10,10 +10,10 @@ using System.Data.Sql;
 
 namespace mynx.admin
 {
-    public partial class imagelibrary : System.Web.UI.Page
+    public partial class image : System.Web.UI.Page
     {
         public string currentTheme = "";
-        public string output = "";
+        public string filePath = "";
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
@@ -48,8 +48,10 @@ namespace mynx.admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string image = Request.QueryString["image"];
+            id.Value = image;
             SqlConnection connection = new SqlConnection(GetConnectionString());
-            string sql_string = "SELECT * FROM uploads";
+            string sql_string = "SELECT * FROM uploads WHERE id = '" + image + "'";
             try
             {
                 connection.Open();
@@ -59,12 +61,10 @@ namespace mynx.admin
 
                 while (image_reader.Read())
                 {
-                    output += "<div class='edit-image'>";
-                    output += "<a href='/admin/image/" + image_reader["id"].ToString() + "'>";
-                    output += "<img src='" + image_reader["filepath"].ToString() + "'/>";
-                    output += "</a></div>";
+                    filePath = image_reader["filepath"].ToString();
+                    album.Text = image_reader["album"].ToString();
+                    alt.Text = image_reader["alt"].ToString();
                 }
-
             }
             catch (System.Data.SqlClient.SqlException ex)
             {
@@ -78,18 +78,23 @@ namespace mynx.admin
             }
         }
 
-        protected void update_page(object sender, EventArgs e)
+
+        public string GetConnectionString()
+        {
+           return System.Configuration.ConfigurationManager.ConnectionStrings["mynxConnectionString"].ConnectionString;
+        }
+
+        protected void update_image(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(GetConnectionString());
-
             try
             {
                 connection.Open();
-                using (SqlCommand cmd = new SqlCommand("UPDATE pages SET title=@pageTitle,slug=@slug,text=@text WHERE id=" + Request["id"], connection))
+                using (SqlCommand cmd = new SqlCommand("UPDATE uploads SET album=@album,alt=@alt WHERE id= @id", connection))
                 {
-                    cmd.Parameters.AddWithValue("@pageTitle", Request["title"]);
-                    cmd.Parameters.AddWithValue("@slug", Request["slug"]);
-                    cmd.Parameters.AddWithValue("@text", Request["text"]);
+                    cmd.Parameters.AddWithValue("@id", id.Value);
+                    cmd.Parameters.AddWithValue("@album", album.Text);
+                    cmd.Parameters.AddWithValue("@alt", alt.Text);
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.ExecuteNonQuery();
                 }
@@ -103,13 +108,9 @@ namespace mynx.admin
             finally
             {
                 connection.Close();
-                Response.Redirect("/admin/editpage.aspx");
+                Response.Redirect("/admin/imagelibrary/");
             }
-        }
 
-        public string GetConnectionString()
-        {
-            return System.Configuration.ConfigurationManager.ConnectionStrings["mynxConnectionString"].ConnectionString;
         } 
     }
 }

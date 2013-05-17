@@ -32,7 +32,7 @@ namespace mynx.admin
             try
             {
                 connection.Open();
-                using (SqlCommand cmd = new SqlCommand("INSERT into uploads VALUES (NEWID(), @path, @album)", connection))
+                using (SqlCommand cmd = new SqlCommand("INSERT into uploads (filepath, album) VALUES (@path, @album)", connection))
                 {
                     cmd.Parameters.AddWithValue("@path", browserFriendlyUrl);
                     cmd.Parameters.AddWithValue("@album", " ");
