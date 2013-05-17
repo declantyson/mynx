@@ -22,7 +22,7 @@ namespace mynx.widgets
            this.code = "<div class='col edit-col col-100 movable resizable widget content-widget image-slider' data-name='imageSlider'><select data-paramname='album' style='display:block'>";
 
            SqlConnection connection = new SqlConnection(GetConnectionString());
-           string sql_string = "SELECT * FROM uploads";
+           string sql_string = "SELECT DISTINCT album FROM uploads";
            try
            {
                connection.Open();
@@ -33,7 +33,6 @@ namespace mynx.widgets
                while (album_reader.Read())
                {
                    this.code += "<option>" + album_reader["album"].ToString() + "</option>";
-                   slideshowItems += "<div class='slideshow-item'><img src='" + album_reader["filepath"].ToString() + "'/></div>";
                }
 
            }
@@ -50,7 +49,31 @@ namespace mynx.widgets
 
            this.code += "</select></div>";
 
-            
+           string thisAlbum = this.parameters.Split('=')[1];
+           string slideshow_string = "SELECT * FROM uploads WHERE album = '" + thisAlbum + "'";
+           try
+           {
+               connection.Open();
+               SqlDataReader item_reader = null;
+               SqlCommand sql_command = new SqlCommand(slideshow_string, connection);
+               item_reader = sql_command.ExecuteReader();
+
+               while (item_reader.Read())
+               {
+                   slideshowItems += "<div class='slideshow-item'><img src='" + item_reader["filepath"].ToString() + "'/></div>";
+               }
+
+           }
+           catch (System.Data.SqlClient.SqlException ex)
+           {
+               string msg = "D'oh, something's not right...";
+               msg += ex.Message;
+               throw new Exception(msg);
+           }
+           finally
+           {
+               connection.Close();
+           }
         }
 
         public string GetConnectionString()
