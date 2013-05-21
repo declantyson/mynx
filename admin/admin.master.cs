@@ -74,7 +74,7 @@ namespace mynx.admin
                     widget_name = widget_reader["widget_name"].ToString();
                     widget_text = widget_reader["widget_text"].ToString();
                     widget_code = widget_reader["widget_code"].ToString();
-                    jsObject += "widgetCode." + widget_name + " = { text : '" + widget_text + "', code : '" + widget_code.Replace("'", "\"") + "' };\n";
+                    jsObject += "widgetCode." + widget_name + " = { text : '" + widget_text + "', code : '" + widget_code.Replace("'", "\"").Replace("<scr\"+\"ipt>", "<scr'+'ipt>").Replace("</scr\"+\"ipt>", "</scr'+'ipt>") + "' };\n";
                 }             
 
             }

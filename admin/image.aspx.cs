@@ -14,6 +14,8 @@ namespace mynx.admin
     {
         public string currentTheme = "";
         public string filePath = "";
+        public string album = "";
+        public string alt = "";
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
@@ -62,8 +64,8 @@ namespace mynx.admin
                 while (image_reader.Read())
                 {
                     filePath = image_reader["filepath"].ToString();
-                    album.Text = image_reader["album"].ToString();
-                    alt.Text = image_reader["alt"].ToString();
+                    album = image_reader["album"].ToString();
+                    alt = image_reader["alt"].ToString();
                 }
             }
             catch (System.Data.SqlClient.SqlException ex)
@@ -93,8 +95,8 @@ namespace mynx.admin
                 using (SqlCommand cmd = new SqlCommand("UPDATE uploads SET album=@album,alt=@alt WHERE id= @id", connection))
                 {
                     cmd.Parameters.AddWithValue("@id", id.Value);
-                    cmd.Parameters.AddWithValue("@album", album.Text);
-                    cmd.Parameters.AddWithValue("@alt", alt.Text);
+                    cmd.Parameters.AddWithValue("@album", Request["album"]);
+                    cmd.Parameters.AddWithValue("@alt", Request["alt"]);
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.ExecuteNonQuery();
                 }
