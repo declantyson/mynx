@@ -74,13 +74,14 @@ namespace mynx.widgets
            // The actual slideshow
 
            string thisAlbum = "";
-           if (this.parameters.Split('=').Length > 1)
+           if (Regex.Split(this.parameters, "==").Length > 1)
            {
                
-               thisAlbum = this.parameters.Split('/')[0].Split('=')[1];
+               thisAlbum = this.parameters.Split('@')[1];
+               thisAlbum = Regex.Split(thisAlbum, "==")[1];
 
-               List<string> links = new List<string>(this.parameters.Split('/'));
-               links.RemoveAt(0);
+               List<string> links = new List<string>(this.parameters.Split('@'));
+               links.RemoveRange(0, 2);
                string[] linksArray = links.ToArray();
                int linkCount = 0;
 
@@ -94,7 +95,7 @@ namespace mynx.widgets
 
                    while (item_reader.Read())
                    {
-                       slideshowItems += "<a href='" + linksArray[linkCount].Split('=')[1]  + "'><div class='slideshow-item'><img src='" + item_reader["filepath"].ToString() + "' alt='" + item_reader["alt"].ToString() + "'/></div></a>";
+                       slideshowItems += "<a href='" + Regex.Split(linksArray[linkCount], "==")[1] + "'><div class='slideshow-item'><img src='" + item_reader["filepath"].ToString() + "' alt='" + item_reader["alt"].ToString() + "'/></div></a>";
                        linkCount++;
                    }
 

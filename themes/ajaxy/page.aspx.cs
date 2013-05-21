@@ -73,7 +73,7 @@ namespace mynx.themes.ajaxy
             {
                 if (count % 2 == 1)
                 {
-                    string[] widgetParams = Regex.Split(d, "//");
+                    string[] widgetParams = Regex.Split(d, "/~/");
 
                     Control ctrl = Page.LoadControl("/widgets/" + widgetParams[0] + ".ascx");
                     dataPanel.Controls.Add(ctrl);
