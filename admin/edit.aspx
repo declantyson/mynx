@@ -34,8 +34,11 @@
 	<div class="clearfix"></div>
 
 	<div class="widget-col col-33 new-col main-widget-editor">
-		<p class="new-content-box">Add content box</p>
-		<p class="new-html">Add raw HTML column</p>
+        <select>
+		    <option value="new-content-box">Add content box</option>
+		    <option value="new-html">Add raw HTML column</option>
+        </select>
+        <input type="button" class="button add-widget-button" value="Add" />
 	</div>
 	<div class="clearfix"></div>
 
@@ -43,11 +46,6 @@
 
 		<%= text %>
 
-	</div>
-
-	<div class="widget-col col-33 new-col main-widget-editor">
-		<p class="new-content-box">Add content box</p>
-		<p class="new-html">Add raw HTML column</p>
 	</div>
 
 </asp:Content>
