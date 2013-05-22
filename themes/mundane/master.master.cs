@@ -6,6 +6,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using System.IO;
 
 namespace mynx.themes.mundane
 {
@@ -15,6 +16,8 @@ namespace mynx.themes.mundane
         public string sidebar_code = "";
         public string toolbar_code = "";
         public string footer_code = "";
+        public string slug = "";
+        public string backgroundImage = "";
         public int block_sidebar = 0;
         public int block_toolbar = 0;
         public int block_footer = 0;
@@ -50,6 +53,21 @@ namespace mynx.themes.mundane
             finally
             {
                 connection.Close();
+            }
+
+            slug = Request.QueryString["page"];
+            if (slug == "" || slug == null)
+            {
+                slug = "home";
+            }
+            string[] formats = new string[3] { ".jpg", ".png", ".gif" };
+            foreach (string f in formats)
+            {
+                string fn = Path.Combine(Server.MapPath("~/assets/featured-images/"), slug + f);
+                if (File.Exists(fn))
+                {
+                    backgroundImage = "<img src='/assets/featured-images/" + slug + f + "' class='bg-img'/>";
+                }
             }
         }
 

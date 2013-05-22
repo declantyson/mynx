@@ -17,3 +17,11 @@ th {
 	padding-bottom: 10px;
 	border-bottom: solid 1px #cdcdcd;
 }
+
+.bg-img 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}

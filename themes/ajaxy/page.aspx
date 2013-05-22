@@ -6,13 +6,12 @@
 	<script>
 		params = {
 			title : $('title').text(),
-			bgcolor : '#898989',
 			bgimgposhorizontal : 'right',
 			bgimgposvertical : 'bottom',
 		}
 	</script>
-
-	<img src="/assets/featured-images/<%= slug %>.png" class="bg-img"/>
+    
+	<%= backgroundImage %>
 
 	<asp:Panel ID="dataPanel" runat="server">
     </asp:Panel>

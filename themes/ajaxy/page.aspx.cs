@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,6 +18,7 @@ namespace mynx.themes.ajaxy
         public string title = "";
         public string data = "";
         public string slug = "";
+        public string backgroundImage = "";
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
@@ -55,6 +57,13 @@ namespace mynx.themes.ajaxy
             finally
             {
                 connection.Close();
+            }
+            string[] formats = new string[3] {".jpg", ".png", ".gif"};
+            foreach (string f in formats) {
+                string fn = Path.Combine(Server.MapPath("~/assets/featured-images/"), slug + f);
+                if(File.Exists(fn)) {
+                    backgroundImage = "<img src='/assets/featured-images/" + slug + f + "' class='bg-img'/>";
+                }
             }
             renderWidgets(data);
         }

@@ -18,6 +18,7 @@ namespace mynx
         public string title = "";
         public string data = "";
         public string slug = "";
+        public string backgroundImage;
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
