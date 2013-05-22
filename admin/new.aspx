@@ -26,7 +26,11 @@
 			<div class="clear"></div>
 			
 			<input id="text" type="hidden" name="text" />
-
+            <p class="show-page-options"><small>Show more options</small><img src="/assets/cms/show-more.png" /></p>
+            <div class="page-options">
+                <hr />
+            </div>
+            <div class="clear"></div>
         	<asp:Button id="update_blog" runat="Server" Text="Update" OnClientClick="return rasterizeContent();" onClick="update_page"/>
 		</div>
 	</form>

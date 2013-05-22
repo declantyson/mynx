@@ -37,6 +37,7 @@
 	<script src="/lib/jquery.masonry.min.js"></script>
 	<script type="text/javascript">
 		widgetCode = {};
+        optionWidgetCode = {};
 		<%= jsObject %>
 	</script>
 	<script src="/lib/cms.js"></script>

@@ -22,11 +22,16 @@
 				<%= catOptions %>
 			</select>
 			<input name="cat_text" type="text" class="category-input"/>
-			<div style="clear:both;"></div>
+			<div class="clear"></div>
 			
 			<input type="hidden" name="id" value="<%= id %>" />
 			<input id="text" type="hidden" name="text" value="<%= text %>" />
 
+            <p class="show-page-options"><small>Show more options</small><img src="/assets/cms/show-more.png" /></p>
+            <div class="page-options">
+                <hr />
+            </div>
+            <div class="clear"></div>
         	<asp:Button id="update_blog" runat="Server" Text="Update" OnClientClick="return rasterizeContent();" onClick="update_page"/>
 		</div>
 	</form>

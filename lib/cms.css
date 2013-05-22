@@ -64,3 +64,15 @@
 .edit-image img {
 	width: 100%;
 }
+
+.show-page-options 
+{
+    margin-top: 0;
+    cursor: pointer;
+}
+
+.page-options 
+{
+    display: none;
+    width: 66%;
+}

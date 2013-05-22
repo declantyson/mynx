@@ -38,6 +38,7 @@
 	<script src="/themes/ajaxy/ajaxy.js"></script>
 	<script type="text/javascript">
 		widgetCode = {};
+        optionWidgetCode = {};
 		<%= jsObject %>
 	</script>
 	<script src="/lib/cms.js"></script>

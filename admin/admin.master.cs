@@ -59,6 +59,8 @@ namespace mynx.admin
             string widget_name = "";
             string widget_text = "";
             string widget_code = "";
+            string widget_type = "";
+            string widget_json_object = "";
 
             string sql_string = "SELECT * FROM widgets";
             try
@@ -74,7 +76,13 @@ namespace mynx.admin
                     widget_name = widget_reader["widget_name"].ToString();
                     widget_text = widget_reader["widget_text"].ToString();
                     widget_code = widget_reader["widget_code"].ToString();
-                    jsObject += "widgetCode." + widget_name + " = { text : '" + widget_text + "', code : '" + widget_code.Replace("'", "\"").Replace("<scr\"+\"ipt>", "<scr'+'ipt>").Replace("</scr\"+\"ipt>", "</scr'+'ipt>") + "' };\n";
+                    widget_type = widget_reader["widget_type"].ToString();
+                    if(widget_type == "Content") {
+                        widget_json_object = "widgetCode";
+                    } else if(widget_type == "Option") {
+                        widget_json_object = "optionWidgetCode";
+                    }
+                    jsObject += widget_json_object + "." + widget_name + " = { text : '" + widget_text + "', code : '" + widget_code.Replace("'", "\"").Replace("<scr\"+\"ipt>", "<scr'+'ipt>").Replace("</scr\"+\"ipt>", "</scr'+'ipt>") + "' };\n";
                 }             
 
             }
