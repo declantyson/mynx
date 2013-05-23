@@ -6,8 +6,6 @@
 	<script>
 		params = {
 			title : $('title').text(),
-			bgimgposhorizontal : 'right',
-			bgimgposvertical : 'bottom',
 		}
 	</script>
     

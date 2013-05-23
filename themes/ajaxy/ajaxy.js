@@ -22,10 +22,10 @@ function prettyTransition(){
 	});
 
 	var bg_options = {
-		opacity : 1
+		opacity : 1,
+        right: '-33%',
+        bottom: 0
 	};
-	bg_options[params.bgimgposhorizontal] = '-33%';
-	bg_options[params.bgimgposvertical] = 0;
 	$('.bg-img').css(bg_options);
 
 	$('h1').css({

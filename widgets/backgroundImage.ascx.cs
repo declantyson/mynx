@@ -14,7 +14,7 @@ namespace mynx.widgets
             this.parameters = "";
             this.text = "Choose background image";
             this.type = "Option";
-            this.code = "<div class='col col-50' style='float:right'><iframe id='bgImgUploader' src='/widgets/backgroundImage/upload.aspx" + this.parameters + "' style='width: 100%' class='image-lib-frame'></iframe></div><div class='clear'></div>";
+            this.code = "<div class='col col-50' style='float:right'><iframe id='bgImgUploader' src='/widgets/backgroundImage/upload.aspx' style='width: 100%' class='image-lib-frame'></iframe></div><div class='clear'></div>";
         }
     }
 }
