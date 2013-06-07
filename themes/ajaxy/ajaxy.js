@@ -152,7 +152,7 @@ $(document).ready(function(){
 			};
 			
 			$('a').live('click', function(e){
-                if(!isExternal($(this).attr('href'))) {
+                if(!isExternal($(this).attr('href')) && $(this).attr('href') !== "/admin/") {
 		    		e.preventDefault();
 			    	href = $(this).attr("href");
 				    history.pushState('', 'New URL: ' + href, href);

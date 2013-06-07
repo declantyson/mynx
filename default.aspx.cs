@@ -22,33 +22,40 @@ namespace mynx
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(GetConnectionString());
-            string sql_string = "SELECT TOP 1 * FROM settings";
-            try
+            if (GetConnectionString() == "")
             {
-                connection.Open();
-                SqlDataReader settings_reader = null;
-                SqlCommand sql_command = new SqlCommand(sql_string, connection);
-                settings_reader = sql_command.ExecuteReader();
-
-                while (settings_reader.Read())
+                Response.Redirect("/install/");
+            }
+            else
+            {
+                SqlConnection connection = new SqlConnection(GetConnectionString());
+                string sql_string = "SELECT TOP 1 * FROM settings";
+                try
                 {
-                    currentTheme = settings_reader["current_theme"].ToString();
+                    connection.Open();
+                    SqlDataReader settings_reader = null;
+                    SqlCommand sql_command = new SqlCommand(sql_string, connection);
+                    settings_reader = sql_command.ExecuteReader();
+
+                    while (settings_reader.Read())
+                    {
+                        currentTheme = settings_reader["current_theme"].ToString();
+                    }
+
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    string msg = "D'oh, something's not right...";
+                    msg += ex.Message;
+                    throw new Exception(msg);
+                }
+                finally
+                {
+                    connection.Close();
                 }
 
+                MasterPageFile = "~/themes/" + currentTheme + "/master.master";
             }
-            catch (System.Data.SqlClient.SqlException ex)
-            {
-                string msg = "D'oh, something's not right...";
-                msg += ex.Message;
-                throw new Exception(msg);
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            MasterPageFile = "~/themes/" + currentTheme + "/master.master";
         }
 
         protected void Page_Init(object sender, EventArgs e)

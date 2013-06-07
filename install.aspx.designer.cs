@@ -7,63 +7,90 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace mynx.admin {
+namespace mynx {
     
     
-    public partial class widgets {
+    public partial class install {
         
         /// <summary>
-        /// widgets_form control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm widgets_form;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// installedwidgetlist control.
+        /// ipAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList installedwidgetlist;
+        protected global::System.Web.UI.WebControls.TextBox ipAddress;
         
         /// <summary>
-        /// reinstall_widget control.
+        /// serverType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button reinstall_widget;
+        protected global::System.Web.UI.WebControls.DropDownList serverType;
         
         /// <summary>
-        /// widgetlist control.
+        /// databaseName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList widgetlist;
+        protected global::System.Web.UI.WebControls.TextBox databaseName;
         
         /// <summary>
-        /// install_widget control.
+        /// databaseUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button install_widget;
+        protected global::System.Web.UI.WebControls.TextBox databaseUsername;
         
         /// <summary>
-        /// widgetinstallpanel control.
+        /// databasePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel widgetinstallpanel;
+        protected global::System.Web.UI.WebControls.TextBox databasePassword;
+        
+        /// <summary>
+        /// mynxUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox mynxUsername;
+        
+        /// <summary>
+        /// mynxPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox mynxPassword;
+        
+        /// <summary>
+        /// installer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button installer;
     }
 }
