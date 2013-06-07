@@ -34,21 +34,31 @@ namespace mynx
         public void InitialiseDatabase(string connString)
         {
             SqlConnection connection = new SqlConnection(connString);
+
             string script = File.ReadAllText(Server.MapPath("/") + "default.sql");
 
             // split script on GO command
             IEnumerable<string> commandStrings = Regex.Split(script, @"^\s*GO\s*$",
                                      RegexOptions.Multiline | RegexOptions.IgnoreCase);
-
-            connection.Open();
-            foreach (string commandString in commandStrings)
+            try
             {
-                if (commandString.Trim() != "")
+                connection.Open();
+                foreach (string commandString in commandStrings)
                 {
-                    new SqlCommand(commandString, connection).ExecuteNonQuery();
+                    if (commandString.Trim() != "")
+                    {
+                        new SqlCommand(commandString, connection).ExecuteNonQuery();
+                    }
                 }
             }
-            connection.Close();
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                Response.Redirect("/");
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public void CreateMYNXUser()

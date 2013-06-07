@@ -243,7 +243,8 @@ input[type=button]:hover {
 	background-color: #86600a;
 }
 
-input[type=text] {
+input[type=text],
+input[type=password] {
 	margin-left: 20px;
 	margin-bottom: 7px;
 	padding: 7px;
