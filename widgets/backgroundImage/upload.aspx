@@ -10,7 +10,8 @@
                 if ($('iframe.refresh', parent.document).length > 0) {
                     parent.location.reload();
                 } else {
-                    $('iframe#bgImgUploader', parent.document).replaceWith(uploadedImage);
+                    $('#bgCol img', parent.document).remove();
+                    $('iframe#bgImgUploader', parent.document).before(uploadedImage);
                 }
             }, 1);
         }
@@ -23,9 +24,9 @@
 	<form id="Form1" runat="server" class="uploader">
         <asp:HiddenField ID="uploadTarget" runat="server" />
 		<asp:Label ID="feedback" runat="server"></asp:Label>
-		<CuteWebUI:Uploader id="uploader" InsertText="Upload a file" OnFileUploaded="uploaded" runat="server">
-			<ValidateOption AllowedFileExtensions="jpeg,jpg,gif,png" MaxSizeKB="2048" />
-		</CuteWebUI:Uploader>
+        <asp:FileUpload ID="uploadFile" runat="server" />
+        <asp:Button ID="uploadButton" runat="server" Text="Upload" 
+            onclick="uploaded" />
 	</form>
     <p class="newMessage" style="display:none;"><small>Please decide on a slug before uploading a background image.</small></p>
     <script>
@@ -60,7 +61,7 @@
         for (f in formats) {
             url = '/assets/featured-images/' + $('input[name="slug"]', parent.document).val() + formats[f];
             if (UrlExists(url)) {
-                $('iframe#bgImgUploader', parent.document).replaceWith("<img src='" + url + "'/>");
+                $('iframe#bgImgUploader', parent.document).before("<img src='" + url + "'/>");console.log('appending');
             }
         }
     </script>

@@ -31,12 +31,21 @@ namespace mynx.admin {
         protected global::System.Web.UI.WebControls.Label feedback;
         
         /// <summary>
-        /// uploader control.
+        /// uploadFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CuteWebUI.Uploader uploader;
+        protected global::System.Web.UI.WebControls.FileUpload uploadFile;
+        
+        /// <summary>
+        /// uploadButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uploadButton;
     }
 }

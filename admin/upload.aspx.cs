@@ -18,13 +18,13 @@ namespace mynx.admin
 
         }
 
-        protected void uploaded(object sender, UploaderEventArgs e)
+        protected void uploaded(object sender, EventArgs e)
         {
             string dir = Path.Combine(Server.MapPath("~/assets/uploads/"), DateTime.Now.ToString("yyyy-MM-dd"));
             System.IO.Directory.CreateDirectory(dir);
-            string fn = Path.Combine(dir, e.FileName);
-            e.CopyTo(fn);
-            string browserFriendlyUrl = "/assets/uploads/" + DateTime.Now.ToString("yyyy-MM-dd") + "/" + e.FileName;
+            string fn = Path.Combine(dir, uploadFile.FileName);
+            uploadFile.SaveAs(fn);
+            string browserFriendlyUrl = "/assets/uploads/" + DateTime.Now.ToString("yyyy-MM-dd") + "/" + uploadFile.FileName;
             feedback.Text = "<div class='col-content'><img src='" + browserFriendlyUrl + "'/></div>";
 
             SqlConnection connection = new SqlConnection(GetConnectionString());
@@ -56,6 +56,6 @@ namespace mynx.admin
         public string GetConnectionString()
         {
             return System.Configuration.ConfigurationManager.ConnectionStrings["mynxConnectionString"].ConnectionString;
-        } 
+        }
     }
 }

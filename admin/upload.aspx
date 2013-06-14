@@ -11,8 +11,8 @@
     </ul>
 	<form id="Form1" runat="server" class="uploader">
 		<asp:Label ID="feedback" runat="server"></asp:Label>
-		<CuteWebUI:Uploader id="uploader" InsertText="Upload a file" OnFileUploaded="uploaded" runat="server">
-			<ValidateOption AllowedFileExtensions="jpeg,jpg,gif,png" MaxSizeKB="2048" />
-		</CuteWebUI:Uploader>
+        <asp:FileUpload ID="uploadFile" runat="server" />
+        <asp:Button ID="uploadButton" runat="server" Text="Upload" 
+            onclick="uploaded" />
 	</form>
 </asp:Content>

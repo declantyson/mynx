@@ -18,13 +18,13 @@ namespace mynx.widgets {
 
         }
 
-        protected void uploaded(object sender, UploaderEventArgs e)
+        protected void uploaded(object sender, EventArgs e)
         {
             string dir = Path.Combine(Server.MapPath("~/assets/featured-images"));
-            string slug = uploadTarget.Value + "." + e.FileName.Split('.')[1];
+            string slug = uploadTarget.Value + "." + uploadFile.FileName.Split('.')[1];
             System.IO.Directory.CreateDirectory(dir);
             string fn = Path.Combine(dir, slug);
-            e.CopyTo(fn);
+            uploadFile.SaveAs(fn);
             string browserFriendlyUrl = "/assets/featured-images/" + slug;
             feedback.Text = "<div class='col-content'><img src='" + browserFriendlyUrl + "'/></div>";
 
