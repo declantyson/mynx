@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="/lib/base.css"/>
 		<link rel="stylesheet" href="/lib/cms.css"/>
 		<link rel="stylesheet" href="/themes/mundane/mundane.css"/>
+        <link rel="stylesheet" href="/lib/redactor.css" />
 	</head>
 	<body>
 		<div class="main">
@@ -36,7 +37,11 @@
 	<script src="/lib/jquery-ui-1.9.2.min.js"></script>
 	<script src="/lib/modernizr.custom.min.js"></script>
 	<script src="/lib/jquery.masonry.min.js"></script>
+    <script src="/lib/redactor.min.js"></script>
 	<script type="text/javascript">
+        $(document).ready(function(){
+            $('textarea').redactor();
+        });
 		widgetCode = {};
         optionWidgetCode = {};
 		<%= jsObject %>
