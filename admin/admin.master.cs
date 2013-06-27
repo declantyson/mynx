@@ -18,6 +18,11 @@ namespace mynx.admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            auth a = new auth();
+            a.enforceAuthentication();
+            /*
+             * Session["mynx_test"] = "test";
+            */
             SqlConnection connection = new SqlConnection(GetConnectionString());
             string sql_string = "SELECT TOP 1 * FROM settings";
             try

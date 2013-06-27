@@ -10,8 +10,10 @@ using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Configuration;
 using System.IO;
+using System.Security.Cryptography;
 using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Common;
+using mynx.admin;
 
 namespace mynx
 {
@@ -61,9 +63,34 @@ namespace mynx
             }
         }
 
-        public void CreateMYNXUser()
+        public void CreateMYNXUser(string connString)
         {
-
+            SqlConnection connection = new SqlConnection(connString);
+            auth a = new auth();
+            string pass = a.HashString("my" + mynxPassword.Text + "nx");
+            try
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO users (user_name,user_pass,user_session) VALUES (@name,@pass,@session)", connection))
+                {
+                    cmd.Parameters.AddWithValue("@name", mynxUsername.Text);
+                    cmd.Parameters.AddWithValue("@pass", pass);
+                    cmd.Parameters.AddWithValue("@session", "session_cookie");
+                    
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                string msg = "=( Something's not right! ";
+                msg += ex.Message;
+                throw new Exception(msg);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         protected void install_Click(object sender, EventArgs e)
@@ -81,7 +108,7 @@ namespace mynx
 
             string connString = SaveConnectionString(address, server, database, user, pass);
             InitialiseDatabase(connString);
-            CreateMYNXUser();
+            CreateMYNXUser(connString);
             
             Response.Redirect("/");
         }

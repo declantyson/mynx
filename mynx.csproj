@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5342A12F-B260-4C94-AB20-200836D7F3ED}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>mynx</RootNamespace>
+    <AssemblyName>mynx</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CuteWebUI.AjaxUploader, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bc00d4b0e43ec38d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\CuteWebUI.AjaxUploader.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\delete.aspx" />
+    <Content Include="admin\edit.aspx" />
+    <Content Include="admin\image.aspx" />
+    <Content Include="admin\imagelibrary.aspx" />
+    <Content Include="admin\imagelibrary_min.aspx" />
+    <Content Include="admin\new.aspx" />
+    <Content Include="admin\pages.aspx" />
+    <Content Include="admin\settings.aspx" />
+    <Content Include="admin\upload.aspx" />
+    <Content Include="admin\widgets.aspx" />
+    <Content Include="assets\cms\contract.png" />
+    <Content Include="assets\cms\edit.png" />
+    <Content Include="assets\cms\expand.png" />
+    <Content Include="assets\cms\move.png" />
+    <Content Include="assets\cms\revert.png" />
+    <Content Include="assets\cms\show-more.png" />
+    <Content Include="assets\featured-images\dec.png" />
+    <Content Include="assets\featured-images\home.png" />
+    <Content Include="assets\featured-images\house-of-cards.png" />
+    <Content Include="bin\CuteWebUI.AjaxUploader.dll" />
+    <Content Include="bin\mynx.dll" />
+    <Content Include="bin\mynx.pdb" />
+    <Content Include="bin\System.Web.Extensions.dll" />
+    <Content Include="default.aspx" />
+    <Content Include="default.sql" />
+    <Content Include="Global.asax" />
+    <Content Include="install.aspx" />
+    <Content Include="lib\ajaxfileupload.js" />
+    <Content Include="lib\base.css" />
+    <Content Include="lib\cms.css" />
+    <Content Include="lib\cms.js" />
+    <Content Include="lib\jquery-1.8.3.min.js" />
+    <Content Include="lib\jquery-ui-1.9.2.min.js" />
+    <Content Include="lib\jquery.masonry.min.js" />
+    <Content Include="lib\modernizr.custom.min.js" />
+    <Content Include="login.aspx" />
+    <Content Include="pages.aspx" />
+    <Content Include="themes\ajaxy\ajaxy.css" />
+    <Content Include="themes\ajaxy\ajaxy.js" />
+    <Content Include="themes\ajaxy\images\ajax-loader.gif" />
+    <Content Include="themes\ajaxy\images\circle.png" />
+    <Content Include="themes\ajaxy\images\drop.jpg" />
+    <Content Include="themes\ajaxy\page.aspx" />
+    <Content Include="themes\ajaxy\preload.js" />
+    <Content Include="themes\mundane\mundane.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="widgets\backgroundColor.ascx" />
+    <Content Include="widgets\backgroundImage\upload.aspx" />
+    <Content Include="widgets\chooseImage.ascx" />
+    <Content Include="widgets\backgroundImage.ascx" />
+    <Content Include="widgets\imageSlider.ascx" />
+    <Content Include="widgets\imageSliderAssets\agt_back.png" />
+    <Content Include="widgets\imageSliderAssets\agt_forward.png" />
+    <Content Include="widgets\imageSliderAssets\imageSlider.css" />
+    <Content Include="widgets\imageSliderAssets\imageSlider.js" />
+    <Content Include="widgets\imageUpload.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\admin.master.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\auth.cs" />
+    <Compile Include="admin\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\edit.aspx.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\edit.aspx.designer.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\image.aspx.cs">
+      <DependentUpon>image.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\image.aspx.designer.cs">
+      <DependentUpon>image.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\imagelibrary.aspx.cs">
+      <DependentUpon>imagelibrary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\imagelibrary.aspx.designer.cs">
+      <DependentUpon>imagelibrary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\imagelibrary_min.aspx.cs">
+      <DependentUpon>imagelibrary_min.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\imagelibrary_min.aspx.designer.cs">
+      <DependentUpon>imagelibrary_min.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\new.aspx.cs">
+      <DependentUpon>new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\new.aspx.designer.cs">
+      <DependentUpon>new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\pages.aspx.cs">
+      <DependentUpon>pages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\pages.aspx.designer.cs">
+      <DependentUpon>pages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\settings.aspx.cs">
+      <DependentUpon>settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\settings.aspx.designer.cs">
+      <DependentUpon>settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\upload.aspx.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\upload.aspx.designer.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\widgets.aspx.cs">
+      <DependentUpon>widgets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\widgets.aspx.designer.cs">
+      <DependentUpon>widgets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="install.aspx.cs">
+      <DependentUpon>install.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="install.aspx.designer.cs">
+      <DependentUpon>install.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages.aspx.cs">
+      <DependentUpon>pages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages.aspx.designer.cs">
+      <DependentUpon>pages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="themes\ajaxy\master.master.cs">
+      <DependentUpon>master.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="themes\ajaxy\master.master.designer.cs">
+      <DependentUpon>master.master</DependentUpon>
+    </Compile>
+    <Compile Include="themes\ajaxy\page.aspx.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="themes\ajaxy\page.aspx.designer.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="themes\mundane\master.master.cs">
+      <DependentUpon>master.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="themes\mundane\master.master.designer.cs">
+      <DependentUpon>master.master</DependentUpon>
+    </Compile>
+    <Compile Include="widgets\backgroundColor.ascx.cs">
+      <DependentUpon>backgroundColor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="widgets\backgroundColor.ascx.designer.cs">
+      <DependentUpon>backgroundColor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="widgets\backgroundImage\upload.aspx.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="widgets\backgroundImage\upload.aspx.designer.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="widgets\chooseImage.ascx.cs">
+      <DependentUpon>chooseImage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="widgets\chooseImage.ascx.designer.cs">
+      <DependentUpon>chooseImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="widgets\backgroundImage.ascx.cs">
+      <DependentUpon>backgroundImage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="widgets\backgroundImage.ascx.designer.cs">
+      <DependentUpon>backgroundImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="widgets\imageSlider.ascx.cs">
+      <DependentUpon>imageSlider.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="widgets\imageSlider.ascx.designer.cs">
+      <DependentUpon>imageSlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="widgets\imageUpload.ascx.cs">
+      <DependentUpon>imageUpload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="widgets\imageUpload.ascx.designer.cs">
+      <DependentUpon>imageUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="widgets\widgetControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="assets\uploads\2013-04-26\" />
+    <Folder Include="assets\uploads\2013-05-01\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\empty.master" />
+    <Content Include="themes\mundane\admin.master" />
+    <Content Include="themes\mundane\master.master" />
+    <Content Include="themes\ajaxy\master.master" />
+    <Content Include="themes\ajaxy\blank.master" />
+    <Content Include="themes\ajaxy\admin.master" />
+    <None Include="bin\ajaxuploader.lic" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63484</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/mynx</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -25,6 +25,7 @@
 						<li><a href="/admin/imagelibrary">Image library</a></li>
 						<li><a href="/admin/widgets">Widgets</a></li>
 						<li><a href="/admin/settings">Settings</a></li>
+                        <li><a href="/login/">Logout</a></li>
 						<li><a href="/">Return to site</a></li>
 					</ul>
 				</div>
