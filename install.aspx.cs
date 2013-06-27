@@ -95,22 +95,37 @@ namespace mynx
 
         protected void install_Click(object sender, EventArgs e)
         {
-            string address = ".";
-            if (ipAddress.Text != "")
+            int errors = 0;
+            string errorString = "";
+
+            if (mynxUsername.Text.Length < 4) { errors++; errorString += "<li>Username is not long enough, must be at least 4 characters</li>"; }
+            if (mynxPassword.Text.Length < 6) { errors++; errorString += "<li>Password is not long enough, must be at least 6 characters</li>"; }
+            if (mynxPassword.Text != mynxConfirmPassword.Text) { errors++; errorString += "<li>Passwords do not match</li>"; }
+
+            if (errors == 0)
             {
-                address = ipAddress.Text;
+                string address = ".";
+                if (ipAddress.Text != "")
+                {
+                    address = ipAddress.Text;
+                }
+
+                string server = serverType.SelectedValue;
+                string database = databaseName.Text;
+                string user = databaseUsername.Text;
+                string pass = databasePassword.Text;
+
+                string connString = SaveConnectionString(address, server, database, user, pass);
+                InitialiseDatabase(connString);
+                CreateMYNXUser(connString);
+
+                Response.Redirect("/");
             }
-
-            string server = serverType.SelectedValue;
-            string database = databaseName.Text;
-            string user = databaseUsername.Text;
-            string pass = databasePassword.Text;
-
-            string connString = SaveConnectionString(address, server, database, user, pass);
-            InitialiseDatabase(connString);
-            CreateMYNXUser(connString);
-            
-            Response.Redirect("/");
+            else
+            {
+                errorString = "<p>Please attend to the " + errors + " errors listed below</p><ul>" + errorString + "</ul>";
+                errormsgs.Controls.Add(new LiteralControl(errorString));
+            }
         }
     }
 }

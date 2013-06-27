@@ -31,6 +31,7 @@
             <div class="content-box col-100">
             <form id="form1" runat="server">
                 <div>
+                    <asp:Panel ID="errormsgs" runat="server"></asp:Panel>
                     <label for="ipAddress">IP/Web Address</label> <asp:TextBox ID="ipAddress" runat="server" Text="localhost"></asp:TextBox><br />
                     <label for="serverType">Server Type</label> <asp:DropDownList ID="serverType" runat="server">
                         <asp:ListItem Value="">Non-Express SQL Server</asp:ListItem>
