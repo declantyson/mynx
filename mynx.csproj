@@ -104,6 +104,8 @@
     <Content Include="lib\jquery-ui-1.9.2.min.js" />
     <Content Include="lib\jquery.masonry.min.js" />
     <Content Include="lib\modernizr.custom.min.js" />
+    <Content Include="lib\redactor.css" />
+    <Content Include="lib\redactor.min.js" />
     <Content Include="login.aspx" />
     <Content Include="pages.aspx" />
     <Content Include="themes\ajaxy\ajaxy.css" />

@@ -34,7 +34,7 @@
                     <p><asp:Literal ID="statusMessage" runat="server"></asp:Literal></p>
                     <label for="mynxUsername">MYNX Admin Username</label> <asp:TextBox ID="mynxUsername" runat="server"></asp:TextBox><br />
                     <label for="mynxPassword">MYNX Admin Password</label> <asp:TextBox ID="mynxPassword" runat="server" TextMode="Password"></asp:TextBox><br />
-                    <asp:Button ID="installer" runat="server" Text="Install MYNX" onclick="install_Click" />
+                    <asp:Button ID="installer" runat="server" Text="Login" onclick="install_Click" />
                 </div>
             </form>
             </div>
