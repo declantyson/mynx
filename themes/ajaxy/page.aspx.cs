@@ -46,7 +46,19 @@ namespace mynx.themes.ajaxy
                     title = page_reader["title"].ToString();
                     data = page_reader["text"].ToString();
                 }
-
+                if (data == "" || data == null)
+                {
+                    connection.Close();
+                    SqlDataReader err_reader = null;
+                    SqlCommand err_command = new SqlCommand("SELECT TOP 1 * FROM pages WHERE slug = '404'", connection);
+                    connection.Open();
+                    err_reader = err_command.ExecuteReader();
+                    while (err_reader.Read())
+                    {
+                        title = err_reader["title"].ToString();
+                        data = err_reader["text"].ToString();
+                    }
+                }  
             }
             catch (System.Data.SqlClient.SqlException ex)
             {
