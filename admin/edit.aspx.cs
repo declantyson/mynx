@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using System.Globalization;
 
 namespace mynx.admin
 {
@@ -75,7 +76,8 @@ namespace mynx.admin
                     cat = page_reader["cat"].ToString();
                     keys = page_reader["meta_keys"].ToString();
                     desc = page_reader["meta_desc"].ToString();
-                    date_updated = page_reader["date_updated"].ToString();
+                    DateTime du = Convert.ToDateTime(page_reader["date_updated"]);
+                    date_updated = du.ToString("dd/MM/yyyy");
                 }
 
                 text = text.Replace("\"", "'");
