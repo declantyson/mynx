@@ -16,9 +16,12 @@ namespace mynx.admin
         public string pageTitle = "";
         public string catOptions = "";
         public string slug = "";
+        public string desc = "";
+        public string keys = "";
         public string text = "";
         public string cat = "";
         public string id = "";
+        public string date_updated = "";
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
@@ -70,6 +73,9 @@ namespace mynx.admin
                     slug = page_reader["slug"].ToString();
                     text = page_reader["text"].ToString();
                     cat = page_reader["cat"].ToString();
+                    keys = page_reader["meta_keys"].ToString();
+                    desc = page_reader["meta_desc"].ToString();
+                    date_updated = page_reader["date_updated"].ToString();
                 }
 
                 text = text.Replace("\"", "'");
@@ -128,11 +134,15 @@ namespace mynx.admin
             try
             {
                 connection.Open();
-                using (SqlCommand cmd = new SqlCommand("UPDATE pages SET title=@pageTitle,slug=@slug,text=@text,cat=@cat WHERE id=" + Request["id"], connection))
+                using (SqlCommand cmd = new SqlCommand("UPDATE pages SET title=@pageTitle,slug=@slug,text=@text,cat=@cat,meta_desc=@desc,meta_keys=@keys,date_updated=@date WHERE id=@id", connection))
                 {
+                    cmd.Parameters.AddWithValue("@id", Request["id"]);
                     cmd.Parameters.AddWithValue("@pageTitle", Request["title"]);
                     cmd.Parameters.AddWithValue("@slug", Request["slug"]);
                     cmd.Parameters.AddWithValue("@text", Request["text"]);
+                    cmd.Parameters.AddWithValue("@desc", Request["desc"]);
+                    cmd.Parameters.AddWithValue("@keys", Request["keys"]);
+                    cmd.Parameters.AddWithValue("@date", DateTime.Now);
                     if (Request["cat_drop"] == "new")
                     {
                         cmd.Parameters.AddWithValue("@cat", Request["cat_text"]);

@@ -4,6 +4,8 @@
 
 	<title>Edit "<%= pageTitle %>"</title>
 
+    <p><i>Last updated: <%= date_updated %></i></p>
+
 	<form id="pageForm" class="edit" style="padding: 1%" method="post" runat="server">
 		<h3>Edit "<%= pageTitle %>"</h3>
 		<div>
@@ -23,6 +25,14 @@
 			</select>
 			<input name="cat_text" type="text" class="category-input"/>
 			<div class="clear"></div>
+
+            <label for="desc" style="width:100px;display:inline-block">META Description</label>
+			<input name="desc" type="text" value="<%= desc %>"/>
+			<div style="clear:both;"></div>
+
+            <label for="keys" style="width:100px;display:inline-block">META Keywords</label>
+			<input name="keys" type="text" value="<%= keys %>"/>
+			<div style="clear:both;"></div>
 			
 			<input type="hidden" name="id" value="<%= id %>" />
 			<input id="text" type="hidden" name="text" value="<%= text %>" />

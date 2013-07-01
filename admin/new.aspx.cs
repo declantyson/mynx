@@ -124,11 +124,14 @@ namespace mynx.admin
                     try
                     {
                         connection.Open();
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO pages (title,slug,text,cat) VALUES (@pageTitle,@slug,@text,@cat)", connection))
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO pages (title,slug,text,cat,meta_desc,meta_keys,date_published,date_updated) VALUES (@pageTitle,@slug,@text,@cat,@desc,@keys,@date,@date)", connection))
                         {
                             cmd.Parameters.AddWithValue("@pageTitle", Request["title"]);
                             cmd.Parameters.AddWithValue("@slug", Request["slug"]);
+                            cmd.Parameters.AddWithValue("@desc", Request["desc"]);
+                            cmd.Parameters.AddWithValue("@keys", Request["keys"]);
                             cmd.Parameters.AddWithValue("@text", Request["text"]);
+                            cmd.Parameters.AddWithValue("@date", DateTime.Now);
                             if (Request["cat_drop"] == "new")
                             {
                                 cmd.Parameters.AddWithValue("@cat", Request["cat_text"]);

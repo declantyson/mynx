@@ -24,6 +24,14 @@
 			</select>
 			<input name="cat_text" type="text" class="category-input"/>
 			<div class="clear"></div>
+
+            <label for="desc" style="width:100px;display:inline-block">META Description</label>
+			<input name="desc" type="text"/>
+			<div style="clear:both;"></div>
+
+            <label for="keys" style="width:100px;display:inline-block">META Keywords</label>
+			<input name="keys" type="text"/>
+			<div style="clear:both;"></div>
 			
 			<input id="text" type="hidden" name="text" />
             <p class="show-page-options"><small>Show more options</small><img src="/assets/cms/show-more.png" /></p>
