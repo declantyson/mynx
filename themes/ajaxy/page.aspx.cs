@@ -18,6 +18,7 @@ namespace mynx.themes.ajaxy
         public string title = "";
         public string data = "";
         public string slug = "";
+        public string date = "";
         public string backgroundImage = "";
 
         protected void Page_PreInit(object sender, EventArgs e)
@@ -45,6 +46,9 @@ namespace mynx.themes.ajaxy
                 {
                     title = page_reader["title"].ToString();
                     data = page_reader["text"].ToString();
+                    DateTime dc = Convert.ToDateTime(page_reader["date_published"]);
+                    date = dc.ToString("dd/MM/yyyy");
+                    date = "<div class='date'>" + date + "</div>";
                 }
                 if (data == "" || data == null)
                 {
@@ -58,7 +62,9 @@ namespace mynx.themes.ajaxy
                         title = err_reader["title"].ToString();
                         data = err_reader["text"].ToString();
                     }
-                }  
+                } else {
+                    data = "<div id='page-" + title.Replace(' ', '-') + "'>" + data + "</div>";
+                }
             }
             catch (System.Data.SqlClient.SqlException ex)
             {
@@ -67,7 +73,7 @@ namespace mynx.themes.ajaxy
                 throw new Exception(msg);
             }
             finally
-            {
+            {  
                 connection.Close();
             }
             string[] formats = new string[3] {".jpg", ".png", ".gif"};

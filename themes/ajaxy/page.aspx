@@ -6,6 +6,7 @@
 	<script>
 		params = {
 			title : $('title').text(),
+            date : "<%= date %>"
 		}
 	</script>
     
