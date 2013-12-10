@@ -129,12 +129,14 @@
     <Content Include="widgets\backgroundImage\upload.aspx" />
     <Content Include="widgets\chooseImage.ascx" />
     <Content Include="widgets\backgroundImage.ascx" />
+    <Content Include="widgets\featureBar.ascx" />
     <Content Include="widgets\imageSlider.ascx" />
     <Content Include="widgets\imageSliderAssets\agt_back.png" />
     <Content Include="widgets\imageSliderAssets\agt_forward.png" />
     <Content Include="widgets\imageSliderAssets\imageSlider.css" />
     <Content Include="widgets\imageSliderAssets\imageSlider.js" />
     <Content Include="widgets\imageUpload.ascx" />
+    <Content Include="widgets\rawHtml.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="admin\admin.master.cs">
@@ -292,6 +294,13 @@
     <Compile Include="widgets\backgroundImage.ascx.designer.cs">
       <DependentUpon>backgroundImage.ascx</DependentUpon>
     </Compile>
+    <Compile Include="widgets\featureBar.ascx.cs">
+      <DependentUpon>featureBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="widgets\featureBar.ascx.designer.cs">
+      <DependentUpon>featureBar.ascx</DependentUpon>
+    </Compile>
     <Compile Include="widgets\imageSlider.ascx.cs">
       <DependentUpon>imageSlider.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -305,6 +314,13 @@
     </Compile>
     <Compile Include="widgets\imageUpload.ascx.designer.cs">
       <DependentUpon>imageUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="widgets\rawHtml.ascx.cs">
+      <DependentUpon>rawHtml.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="widgets\rawHtml.ascx.designer.cs">
+      <DependentUpon>rawHtml.ascx</DependentUpon>
     </Compile>
     <Compile Include="widgets\widgetControl.cs">
       <SubType>ASPXCodeBehind</SubType>

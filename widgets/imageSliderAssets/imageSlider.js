@@ -9,7 +9,7 @@ $(document).ready(function () {
         slideshowSize();
     });
     $(window).load(function () {
-        setTimeout(function () { slide(1, 5000) }, 5000)
+        setTimeout(function () { slide(1, 5000) }, 7000)
     });
     $(window).resize(function () {
         slideshowSize();

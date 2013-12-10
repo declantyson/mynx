@@ -51,7 +51,7 @@
 	<div class="widget-col col-33 new-col main-widget-editor">
         <select>
 		    <option value="new-content-box">Add content box</option>
-		    <option value="new-html">Add raw HTML column</option>
+		    <option value="new-html">Add rich text column</option>
         </select>
         <input type="button" class="button add-widget-button" value="Add" />
 	</div>

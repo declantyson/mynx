@@ -41,7 +41,7 @@
 	<script src="/themes/ajaxy/ajaxy.js"></script>
 	<script type="text/javascript">
         $(document).ready(function(){
-            $('textarea').redactor();
+            $('.redactor textarea').redactor();
         });
 		widgetCode = {};
         optionWidgetCode = {};
