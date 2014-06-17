@@ -78,9 +78,9 @@ namespace mynx.themes.ajaxy
             }
             string[] formats = new string[3] {".jpg", ".png", ".gif"};
             foreach (string f in formats) {
-                string fn = Path.Combine(Server.MapPath("~/assets/featured-images/"), slug + f);
+                string fn = Path.Combine(Server.MapPath("~/assets/background-images/"), slug + f);
                 if(File.Exists(fn)) {
-                    backgroundImage = "<img src='/assets/featured-images/" + slug + f + "' class='bg-img'/>";
+                    backgroundImage = "<img src='/assets/background-images/" + slug + f + "' class='bg-img'/>";
                 }
             }
             renderWidgets(data);
