@@ -55,7 +55,9 @@ namespace mynx
             }
             catch (System.Data.SqlClient.SqlException ex)
             {
-                Response.Redirect("/");
+				string msg = "=( Something's not right! ";
+                msg += ex.Message;
+                throw new Exception(msg);
             }
             finally
             {
