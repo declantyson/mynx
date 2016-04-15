@@ -33,9 +33,7 @@ namespace mynx.admin
 
                 while (image_reader.Read())
                 {
-                    output += "<div class='edit-image'>";
-                    output += "<img src='" + image_reader["filepath"].ToString() + "'/>";
-                    output += "</div>";
+                    output += String.Format("<div class='edit-image'><img src='{0}'/></div>", image_reader["filepath"].ToString());
                 }
 
             }
@@ -58,8 +56,9 @@ namespace mynx.admin
             try
             {
                 connection.Open();
-                using (SqlCommand cmd = new SqlCommand("UPDATE pages SET title=@pageTitle,slug=@slug,text=@text WHERE id=" + Request["id"], connection))
+                using (SqlCommand cmd = new SqlCommand("UPDATE pages SET title=@pageTitle,slug=@slug,text=@text WHERE id=@id", connection))
                 {
+                    cmd.Parameters.AddWithValue("@id", Request["id"]);
                     cmd.Parameters.AddWithValue("@pageTitle", Request["title"]);
                     cmd.Parameters.AddWithValue("@slug", Request["slug"]);
                     cmd.Parameters.AddWithValue("@text", Request["text"]);

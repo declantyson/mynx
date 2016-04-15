@@ -53,7 +53,7 @@ namespace mynx.admin
             string image = Request.QueryString["image"];
             id.Value = image;
             SqlConnection connection = new SqlConnection(GetConnectionString());
-            string sql_string = "SELECT * FROM uploads WHERE id = '" + image + "'";
+            string sql_string = String.Format("SELECT * FROM uploads WHERE id = '{0}'", image);
             try
             {
                 connection.Open();

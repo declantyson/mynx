@@ -24,8 +24,8 @@ namespace mynx.admin
             System.IO.Directory.CreateDirectory(dir);
             string fn = Path.Combine(dir, uploadFile.FileName);
             uploadFile.SaveAs(fn);
-            string browserFriendlyUrl = "/assets/uploads/" + DateTime.Now.ToString("yyyy-MM-dd") + "/" + uploadFile.FileName;
-            feedback.Text = "<div class='col-content'><img src='" + browserFriendlyUrl + "'/></div>";
+            string browserFriendlyUrl = String.Format("/assets/uploads/{0}/{1}", DateTime.Now.ToString("yyyy-MM-dd"), uploadFile.FileName);
+            feedback.Text = String.Format("<div class='col-content'><img src='{0}'/></div>", browserFriendlyUrl);
 
             SqlConnection connection = new SqlConnection(GetConnectionString());
 

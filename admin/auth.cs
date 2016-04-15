@@ -33,7 +33,7 @@ namespace mynx.admin
             try
             {
                 connection.Open();
-                string sql_string = "SELECT * FROM users WHERE user_name = '" + user + "'";
+                string sql_string = String.Format("SELECT * FROM users WHERE user_name = '{0}'", user);
                 SqlDataReader user_reader = null;
                 SqlCommand sql_command = new SqlCommand(sql_string, connection);
                 user_reader = sql_command.ExecuteReader();

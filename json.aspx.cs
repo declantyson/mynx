@@ -57,14 +57,14 @@ using System.Data.Sql;
                 cat = cat.Replace("-", " ");
                 cat = ToTitleCase(cat);
                 pageTitle = cat;
-                cat = "AND cat = '" + cat + "'";
+                cat = String.Format("AND cat = '{0}'", cat);
             }
             else
             {
                 pageTitle = "Page Directory";
             }
             SqlConnection connection = new SqlConnection(GetConnectionString());
-            string sql_string = String.Format("SELECT * FROM pages WHERE slug != 'home' AND cat != 'Errors' {0} ORDER BY date_published DESC", cat);
+            string sql_string = String.Format("SELECT * FROM pages WHERE active = 1 AND published = 1 {0} ORDER BY date_published DESC", cat);
             try
             {
                 connection.Open();
@@ -84,13 +84,7 @@ using System.Data.Sql;
 					}
                     slug = page_reader["slug"].ToString();
 					text = text.Replace("'", "&rsquo;");
-						data += "{";
-						data += "\"title\":\"" + title + "\",";
-						data += "\"slug\":\"" + slug + "\",";
-						data += "\"image\":\"/assets/background-images/" + slug + ".jpg\",";
-						data += "\"date\":\"" + date + "\",";
-						data += "\"intro\":\"" + text.Trim() + "\"";
-						data += "}";				
+                    data += String.Format("{{ \"title\" : \"{0}\", \"slug\" : \"{1}\", \"image\":\"/assets/background-images/{2}.jpg, \"date\" : \"{3}\", \"intro\":\"{4}\" }}", title, slug, slug, date, text.Trim());
 					count++;
                 }
                 data += "]";

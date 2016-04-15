@@ -9,6 +9,7 @@
 			<thead>
 				<th>Page title</th>
 				<th>Slug</th>
+                <th>Date</th>
 				<th></th>
 			</thead>
 			<tbody>

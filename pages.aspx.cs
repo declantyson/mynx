@@ -65,14 +65,14 @@ namespace mynx
                 cat = cat.Replace("-", " ");
                 cat = ToTitleCase(cat);
                 pageTitle = cat;
-                cat = "AND cat = '" + cat + "'";
+                cat = String.Format("AND cat = '{0}'", cat);
             }
             else
             {
                 pageTitle = "Page Directory";
             }
             SqlConnection connection = new SqlConnection(GetConnectionString());
-            string sql_string = "SELECT * FROM pages WHERE slug != 'home' " + cat;
+            string sql_string = String.Format("SELECT * FROM pages WHERE slug != 'home' {0}", cat);
             try
             {
                 connection.Open();
@@ -84,7 +84,7 @@ namespace mynx
                 {
                     title = page_reader["title"].ToString();
                     slug = page_reader["slug"].ToString();
-                    data += "<a href='/" + slug + "'>" + title + "</a><br/>";
+                    data += String.Format("<a href='/{0}'>{1}</a><br/>", slug, title);
                 }
 
             }

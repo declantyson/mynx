@@ -27,7 +27,7 @@ namespace mynx
         public string SaveConnectionString(string a, string b, string c, string d, string e)
         {
             System.Configuration.Configuration webConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
-            string connString = "Data Source=" + a + b + ";Initial Catalog=" + c + ";User ID=" + d + ";Password=" + e;
+            string connString = String.Format("Data Source={0}{1};Initial Catalog={2};User ID={3};Password={4}", a, b, c, d, e);
             webConfig.ConnectionStrings.ConnectionStrings["mynxConnectionString"].ConnectionString = connString;
             webConfig.Save();
             return connString;
@@ -125,7 +125,7 @@ namespace mynx
             }
             else
             {
-                errorString = "<p>Please attend to the " + errors + " errors listed below</p><ul>" + errorString + "</ul>";
+                errorString = String.Format("<p>Please attend to the {0} errors listed below</p><ul>{1}</ul>", errors, errorString);
                 errormsgs.Controls.Add(new LiteralControl(errorString));
             }
         }

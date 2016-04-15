@@ -87,7 +87,7 @@ namespace mynx.admin
                     } else if(widget_type == "Option") {
                         widget_json_object = "optionWidgetCode";
                     }
-                    jsObject += widget_json_object + "." + widget_name + " = { text : '" + widget_text + "', code : '" + widget_code.Replace("'", "\"").Replace("scr\"+\"ipt", "scr'+'ipt") + "' };\n";
+                    jsObject += String.Format("{0}.{1} = {{ text : '{2}', code : '{3}' }};\n", widget_json_object, widget_name, widget_text, widget_code.Replace("'", "\"").Replace("scr\"+\"ipt", "scr'+'ipt"));
                 }             
 
             }

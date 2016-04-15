@@ -49,7 +49,7 @@ namespace mynx.admin
         protected void Page_Load(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(GetConnectionString());
-            string sql_string = "SELECT * FROM pages";
+            string sql_string = "SELECT * FROM pages ORDER BY date_published DESC";
             try
             {
                 connection.Open();
@@ -59,11 +59,7 @@ namespace mynx.admin
 
                 while (page_reader.Read())
                 {
-                    output += "<tr>";
-                    output += "<td><a href='/admin/edit/" + page_reader["slug"].ToString() + "'>" + page_reader["title"].ToString() + "</a></td>";
-                    output += "<td>" + page_reader["slug"].ToString() + "</td>";
-                    output += "<td><a href='#' class='delete-link' data-del='" + page_reader["slug"].ToString() + "'>Delete</a></td>";
-                    output += "</tr>";
+                    output += String.Format("<tr><td><a href='/admin/edit/{0}'>{1}</a></td><td>{2}</td><td>{3}</td><td><a href='#' class='delete-link' data-del='{4}'>Delete</a></td></tr>", page_reader["slug"].ToString(), page_reader["title"].ToString(), page_reader["slug"].ToString(), Convert.ToDateTime(page_reader["date_published"]).ToString("dd/MM/yyyy"), page_reader["slug"].ToString());
                 }
 
             }
@@ -86,8 +82,9 @@ namespace mynx.admin
             try
             {
                 connection.Open();
-                using (SqlCommand cmd = new SqlCommand("UPDATE pages SET title=@pageTitle,slug=@slug,text=@text WHERE id=" + Request["id"], connection))
+                using (SqlCommand cmd = new SqlCommand("UPDATE pages SET title=@pageTitle,slug=@slug,text=@text WHERE id=@id", connection))
                 {
+                    cmd.Parameters.AddWithValue("@id", Request["id"]);
                     cmd.Parameters.AddWithValue("@pageTitle", Request["title"]);
                     cmd.Parameters.AddWithValue("@slug", Request["slug"]);
                     cmd.Parameters.AddWithValue("@text", Request["text"]);

@@ -1,2 +1,2 @@
-<%@ Page Language="C#"  AutoEventWireup="true" Inherits="json" CodeFile="json.aspx.cs" %>
+<%@ Page Language="C#"  AutoEventWireup="true" Inherits="json" CodeBehind="json.aspx.cs" %>
 

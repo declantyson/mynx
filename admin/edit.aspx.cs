@@ -59,7 +59,7 @@ namespace mynx.admin
         {
             slug = Request.QueryString["page"];
             SqlConnection connection = new SqlConnection(GetConnectionString());
-            string sql_string = "SELECT * FROM pages WHERE slug = '" + slug + "'";
+            string sql_string = String.Format("SELECT * FROM pages WHERE slug = '{0}'", slug);
             try
             {
                 connection.Open();
@@ -104,13 +104,13 @@ namespace mynx.admin
 
                     while (cat_reader.Read())
                     {
+                        string sel = "";
                         c = cat_reader["cat"].ToString();
-                        catOptions += "<option";
                         if (c == cat)
                         {
-                            catOptions += " selected";
+                            sel = "selected";
                         }
-                        catOptions += " value='" + c.Replace(" ", "_") + "'>" + c + "</option>";
+                        catOptions += String.Format("<option {0} value='{1}'>{2}</option>", c.Replace(" ", "_"), c, sel);
                     }
 
                     text = text.Replace("\"", "'");
