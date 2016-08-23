@@ -84,7 +84,7 @@ using System.Data.Sql;
 					}
                     slug = page_reader["slug"].ToString();
 					text = text.Replace("'", "&rsquo;");
-                    data += String.Format("{{ \"title\" : \"{0}\", \"slug\" : \"{1}\", \"image\":\"/assets/background-images/{2}.jpg, \"date\" : \"{3}\", \"intro\":\"{4}\" }}", title, slug, slug, date, text.Trim());
+                    data += String.Format("{{ \"title\" : \"{0}\", \"slug\" : \"{1}\", \"image\":\"/assets/background-images/{2}.jpg\", \"date\" : \"{3}\", \"intro\":\"{4}\" }}", title, slug, slug, date, text.Trim());
 					count++;
                 }
                 data += "]";
