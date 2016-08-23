@@ -76,7 +76,7 @@ using System.Data.Sql;
                 while (page_reader.Read())
                 {
 					if(count > 0) data += ",";
-                    title = page_reader["title"].ToString();
+            				title = page_reader["title"].ToString();
 					text = RemoveHTML(page_reader["text"].ToString());
 					string date = page_reader["date_published"].ToString();
 					cat = page_reader["cat"].ToString();
@@ -84,8 +84,9 @@ using System.Data.Sql;
 						text = text.Substring(0, 250) + "...";
 					}
                     			slug = page_reader["slug"].ToString();
-					text = text.Replace("'", "&rsquo;");
-            				data += String.Format("{{ \"title\" : \"{0}\", \"slug\" : \"{1}\", \"image\":\"/assets/background-images/{2}.jpg\", \"date\" : \"{3}\", \"intro\":\"{4}\", \"category\" : \"{5}\" }}", title, slug, slug, date, text.Trim(), cat);
+					title = title.Replace("'", "&rsquo;").Replace("\r\n", string.Empty).Replace("\"", "&rdquo;");
+					text = text.Replace("'", "&rsquo;").Replace("\r\n", string.Empty).Replace("\"", "&rdquo;");
+                    			data += String.Format("{{ \"title\" : \"{0}\", \"slug\" : \"{1}\", \"image\":\"/assets/background-images/{2}.jpg\", \"date\" : \"{3}\", \"intro\":\"{4}\", \"category\" : \"{5}\" }}", title, slug, slug, date, text.Trim(), cat);
 					count++;
                 }
                 data += "]";
