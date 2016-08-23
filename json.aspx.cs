@@ -79,12 +79,13 @@ using System.Data.Sql;
                     title = page_reader["title"].ToString();
 					text = RemoveHTML(page_reader["text"].ToString());
 					string date = page_reader["date_published"].ToString();
+					cat = page_reader["cat"].ToString();
 					if(text.Length > 250) {
 						text = text.Substring(0, 250) + "...";
 					}
-                    slug = page_reader["slug"].ToString();
+                    			slug = page_reader["slug"].ToString();
 					text = text.Replace("'", "&rsquo;");
-                    data += String.Format("{{ \"title\" : \"{0}\", \"slug\" : \"{1}\", \"image\":\"/assets/background-images/{2}.jpg\", \"date\" : \"{3}\", \"intro\":\"{4}\" }}", title, slug, slug, date, text.Trim());
+            				data += String.Format("{{ \"title\" : \"{0}\", \"slug\" : \"{1}\", \"image\":\"/assets/background-images/{2}.jpg\", \"date\" : \"{3}\", \"intro\":\"{4}\", \"category\" : \"{5}\" }}", title, slug, slug, date, text.Trim(), cat);
 					count++;
                 }
                 data += "]";
