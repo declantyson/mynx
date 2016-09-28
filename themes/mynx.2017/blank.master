@@ -1,0 +1,9 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="mynx.themes.ajaxy.master" Codebehind="master.master.cs" %>
+
+<asp:ContentPlaceHolder id="ajax_content" runat="server">
+
+</asp:ContentPlaceHolder>
+
+<asp:ContentPlaceHolder id="content" runat="server">
+
+</asp:ContentPlaceHolder>

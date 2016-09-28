@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="mynx.admin.master" Codebehind="~/admin/admin.master.cs" %>
+
+<!doctype html>
+<html>
+	<script src="/themes/ajaxy/preload.js"></script>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/lib/base.css"/>
+		<link rel="stylesheet" href="/lib/cms.css"/>
+		<link rel="stylesheet" href="/themes/2016.declantyson/admin.css" />
+	        <link rel="stylesheet" href="/lib/redactor.css" />
+	</head>
+	<body>
+		<div class="cms-header">
+			<a href="/admin/"><img src="/assets/cms/mynx.png" /></a>
+			<input name="title" type="text" placeholder="Enter title here..."/>
+		</div>
+		<div class="main">
+			<h1 id="title"></h1>
+			<div class="content">
+				<asp:ContentPlaceHolder id="content" runat="server">
+
+				</asp:ContentPlaceHolder>
+			</div>
+		</div>
+	</body>
+	<script src="/lib/jquery-1.8.3.min.js"></script>
+	<script src="/lib/jquery-ui-1.9.2.min.js"></script>
+	<script src="/lib/modernizr.custom.min.js"></script>
+	<script src="/lib/jquery.masonry.min.js"></script>
+	<script src="/lib/redactor.min.js"></script>
+	<script type="text/javascript">
+	        $(document).ready(function(){
+	            $('.redactor textarea').each(function(){
+		    	if(!$(this).parent().hasClass('raw')) {
+			    	$(this).redactor();
+			}
+		    });
+	        });
+		widgetCode = {};
+	        optionWidgetCode = {};
+		<%= jsObject %>
+	</script>
+	<script src="/lib/cms.js"></script>
+</html>
