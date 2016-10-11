@@ -1,10 +1,10 @@
 /*
 *   MYNX Admin Theme
-*   v1.1.16
+*   v1.1.17
 *   29/09/2016
 */
 body {
-  font-family: 'Ubuntu';
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 100;
 }
 .cms-header {
@@ -20,7 +20,7 @@ body {
   display: none;
   border: none;
   font-size: 36px;
-  font-family: 'Ubuntu';
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   width: 400px;
   position: relative;
@@ -49,13 +49,12 @@ form {
 .update-button input {
   color: #ffffff;
   border: none;
-  padding: 0;
   margin: 0;
   border-radius: 0;
   font-size: 24px;
   line-height: 24px;
   padding: 26px 20px;
-  font-family: 'Ubuntu';
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 100;
   background-color: #752671;
 }

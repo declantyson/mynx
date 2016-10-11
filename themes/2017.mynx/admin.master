@@ -2,12 +2,12 @@
 
 <!doctype html>
 <html>
-	<script src="/themes/ajaxy/preload.js"></script>
+	<script src="/themes/2017.mynx/preload.js"></script>
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/lib/base.css"/>
 		<link rel="stylesheet" href="/lib/cms.css"/>
-		<link rel="stylesheet" href="/themes/2016.declantyson/admin.css" />
+		<link rel="stylesheet" href="/themes/2017.mynx/admin.css" />
 	        <link rel="stylesheet" href="/lib/redactor.css" />
 	</head>
 	<body>
@@ -32,10 +32,10 @@
 	<script type="text/javascript">
 	        $(document).ready(function(){
 	            $('.redactor textarea').each(function(){
-		    	if(!$(this).parent().hasClass('raw')) {
-			    	$(this).redactor();
-			}
-		    });
+                    if(!$(this).parent().hasClass('raw')) {
+                        $(this).redactor();
+                    }
+                });
 	        });
 		widgetCode = {};
 	        optionWidgetCode = {};

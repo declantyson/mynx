@@ -34,7 +34,7 @@
         if (loc == "/admin/new" || loc == "/admin/new/") {
             $('#Form1').hide();
             $('.newMessage').show();
-            $('input[name="slug"]', parent.document).on('change keypress paste textInput input', function () {
+            $('input[name="slug"], .cms-header input', parent.document).on('change keypress paste textInput input', function () {
                 if ($(this).val() == "") {
                     $('#Form1').hide();
                     $('.newMessage').show();

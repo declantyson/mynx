@@ -21,8 +21,6 @@
 				<p class="show-page-options"><small>Show more options</small><img src="/assets/cms/show-more.png" /></p>
 				<div class="clear"></div>
 	            <div class="page-options">
-					<h1>This section is in progress...</h1>
-	                <hr />
 					<input name="desc" type="text" placeholder="Description"/>
 	            </div>
 			</div>
