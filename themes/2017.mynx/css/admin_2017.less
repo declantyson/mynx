@@ -1,7 +1,7 @@
 /*
 *   MYNX Admin Theme
-*   v1.1.17
-*   29/09/2016
+*   v1.1.33
+*   11/10/2016
 */
 
 @mynxBrand: #752671;
@@ -85,8 +85,13 @@ form {
         outline: none;
         display: block;
         float: left;
+        width: 241px;
+        font-size: 12px;
+        font-family: 'Ubuntu', sans-serif;
     }
-    input[type=text] {
+    label {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 12px;
         padding: 20px;
         margin: 0;
         background: transparent;
@@ -96,11 +101,28 @@ form {
         outline: none;
         display: block;
         float: left;
+        width: 200px;
+    }
+    input[type=text] {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 12px;
+        padding: 20px;
+        margin: 0;
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        outline: none;
+        display: block;
+        float: left;
+        width: 400px;
+        overflow: hidden;
+        transition: all 0.4s ease-out;
+        &.category-input {
+            width: 150px;
+        }
         &:disabled {
-            background-color: black;
-            &::-webkit-input-placeholder {
-                color: black;
-            }
+            width: 0;
+            padding: 20px 0;
         }
     }
     .show-page-options {
@@ -150,4 +172,13 @@ form {
 
 .col-100 {
     width: 100%;
+}
+
+.newMessage {
+    color: #ffffff;
+    margin: 0;
+}
+
+#bgCol {
+    float: left !important;
 }

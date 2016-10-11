@@ -11,16 +11,16 @@
 			<input name="slug" type="hidden" id="slug"/>
 			<input name="keys" type="hidden" id="keys"/>
 			<div class="category-select">
-				<label class="select-label"></label>
 				<select name="cat_drop">
 					<option>Select category</option>
 					<option value="new">New category</option>
 					<%= catOptions %>
 				</select>
-				<input name="cat_text" type="text" class="category-input" placeholder="New category name"/>
+				<input name="cat_text" type="text" class="category-input" placeholder="New category name" disabled/>
 				<p class="show-page-options"><small>Show more options</small><img src="/assets/cms/show-more.png" /></p>
 				<div class="clear"></div>
 	            <div class="page-options">
+	                <label>Description</label>
 					<input name="desc" type="text" placeholder="Description"/>
 	            </div>
 			</div>

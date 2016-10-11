@@ -16,11 +16,6 @@
             }, 1);
         }
     </script>
-	<h3>Upload a file</h3>
-	<ul style="font-size:11px;">
-        <li>Maximum file size: 2048 KB</li>
-        <li>Allowed file types: jpeg, jpg, gif,png </li>
-    </ul>
 	<form id="Form1" runat="server" class="uploader">
         <asp:HiddenField ID="uploadTarget" runat="server" />
 		<asp:Label ID="feedback" runat="server"></asp:Label>
@@ -35,13 +30,13 @@
             $('#Form1').hide();
             $('.newMessage').show();
             $('input[name="slug"], .cms-header input', parent.document).on('change keypress paste textInput input', function () {
-                if ($(this).val() == "") {
+                if ($('input[name="slug"]').val() == "") {
                     $('#Form1').hide();
                     $('.newMessage').show();
                 } else {
                     $('#Form1').show();
                     $('.newMessage').hide();
-                    $('#<%= uploadTarget.ClientID %>').val($(this).val());
+                    $('#<%= uploadTarget.ClientID %>').val($('input[name="slug"]').val());
                 }
             });
         } else {

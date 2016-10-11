@@ -1,7 +1,7 @@
 /*
 *   MYNX Admin Theme
-*   v1.1.17
-*   29/09/2016
+*   v1.1.33
+*   11/10/2016
 */
 body {
   font-family: 'Ubuntu', sans-serif;
@@ -78,8 +78,13 @@ form {
   outline: none;
   display: block;
   float: left;
+  width: 241px;
+  font-size: 12px;
+  font-family: 'Ubuntu', sans-serif;
 }
-.category-select input[type=text] {
+.category-select label {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 12px;
   padding: 20px;
   margin: 0;
   background: transparent;
@@ -89,12 +94,29 @@ form {
   outline: none;
   display: block;
   float: left;
+  width: 200px;
+}
+.category-select input[type=text] {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 12px;
+  padding: 20px;
+  margin: 0;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  outline: none;
+  display: block;
+  float: left;
+  width: 400px;
+  overflow: hidden;
+  transition: all 0.4s ease-out;
+}
+.category-select input[type=text].category-input {
+  width: 150px;
 }
 .category-select input[type=text]:disabled {
-  background-color: black;
-}
-.category-select input[type=text]:disabled::-webkit-input-placeholder {
-  color: black;
+  width: 0;
+  padding: 20px 0;
 }
 .category-select .show-page-options {
   margin: 0;
@@ -135,4 +157,11 @@ form {
 }
 .col-100 {
   width: 100%;
+}
+.newMessage {
+  color: #ffffff;
+  margin: 0;
+}
+#bgCol {
+  float: left !important;
 }
