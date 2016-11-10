@@ -12,6 +12,8 @@ namespace mynx.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+			Response.AppendHeader("Access-Control-Allow-Origin", "*");
+
 			auth a = new auth();	
 			// Please hash your passwords before sending the request!
             bool status = a.login(Request.Form["mynxUsername"], Request.Form["mynxPassword"]);
